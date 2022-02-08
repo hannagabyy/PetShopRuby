@@ -1,0 +1,27 @@
+<%= form_with(model: veterinario) do |form| %>
+  <% if veterinario.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(veterinario.errors.count, "error") %> prohibited this veterinario from being saved:</h2>
+
+      <ul>
+        <% veterinario.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nome, style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.label :preco, style: "display: block" %>
+    <%= form.text_field :preco %>
+  </div>
+  
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

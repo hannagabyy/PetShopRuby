@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @veterinario %>
+
+<div>
+  <%= link_to "Edit this veterinario", edit_veterinario_path(@veterinario) %> |
+  <%= link_to "Back to veterinarios", veterinarios_path %>
+
+  <%= button_to "Destroy this veterinario", @veterinario, method: :delete %>
+</div>

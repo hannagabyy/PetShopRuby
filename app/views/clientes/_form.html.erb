@@ -27,6 +27,11 @@
   </div>
 
   <div>
+    <%= form.label :veterinario, style: "display: block" %>
+    <%= form.select :veterniario_nome, Veterinario.all.collect { |p| p.nome }, include_blank: true %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
