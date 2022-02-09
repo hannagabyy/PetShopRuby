@@ -3,12 +3,7 @@
 <h1>Clientes</h1>
 
 <div id="clientes">
-  <% @clientes.each do |cliente| %>
-    <%= render cliente %>
-    <p>
-      <%= link_to "Show this cliente", cliente %>
-    </p>
-  <% end %>
+    <%= render @clientes %>
 </div>
 
 <%= link_to "New cliente", new_cliente_path %>

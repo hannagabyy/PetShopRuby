@@ -14,9 +14,11 @@ class ClientesTest < ApplicationSystemTestCase
     visit clientes_url
     click_on "New cliente"
 
-    fill_in "Contato", with: @cliente.contato
-    fill_in "Endereco", with: @cliente.endereco
+    fill_in "Bairro", with: @cliente.bairro
+    fill_in "Email", with: @cliente.email
     fill_in "Nome", with: @cliente.nome
+    fill_in "Rua", with: @cliente.rua
+    fill_in "Veterinario", with: @cliente.veterinario_id
     click_on "Create Cliente"
 
     assert_text "Cliente was successfully created"
@@ -27,9 +29,11 @@ class ClientesTest < ApplicationSystemTestCase
     visit cliente_url(@cliente)
     click_on "Edit this cliente", match: :first
 
-    fill_in "Contato", with: @cliente.contato
-    fill_in "Endereco", with: @cliente.endereco
+    fill_in "Bairro", with: @cliente.bairro
+    fill_in "Email", with: @cliente.email
     fill_in "Nome", with: @cliente.nome
+    fill_in "Rua", with: @cliente.rua
+    fill_in "Veterinario", with: @cliente.veterinario_id
     click_on "Update Cliente"
 
     assert_text "Cliente was successfully updated"

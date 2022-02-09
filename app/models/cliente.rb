@@ -1,3 +1,3 @@
-class Cliente < ApplicationRecord    
-    belongs_to :veterinario
+class Cliente < ApplicationRecord
+  belongs_to :veterinario
 end

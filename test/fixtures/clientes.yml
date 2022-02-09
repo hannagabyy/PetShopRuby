@@ -2,10 +2,14 @@
 
 one:
   nome: MyString
-  contato: MyString
-  endereco: MyString
+  email: MyString
+  bairro: MyString
+  rua: MyString
+  veterinario: one
 
 two:
   nome: MyString
-  contato: MyString
-  endereco: MyString
+  email: MyString
+  bairro: MyString
+  rua: MyString
+  veterinario: two

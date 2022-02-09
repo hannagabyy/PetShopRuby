@@ -17,19 +17,27 @@
   </div>
 
   <div>
-    <%= form.label :contato, style: "display: block" %>
-    <%= form.text_field :contato %>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
   </div>
 
   <div>
-    <%= form.label :endereco, style: "display: block" %>
-    <%= form.text_field :endereco %>
+    <%= form.label :bairro, style: "display: block" %>
+    <%= form.text_field :bairro %>
   </div>
 
   <div>
-    <%= form.label :veterinario, style: "display: block" %>
-    <%= form.select :veterniario_nome, Veterinario.all.collect { |p| p.nome }, include_blank: true %>
+    <%= form.label :rua, style: "display: block" %>
+    <%= form.text_field :rua %>
   </div>
+
+ 
+  <div>
+    <%= form.label :veterinario_id, style: "display: block" %>
+    <%= form.select :Veterinario_id, Veterinario.all.collect { |p| p.id } %>
+  </div>
+
+  
 
   <div>
     <%= form.submit %>
