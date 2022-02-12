@@ -1,3 +1,14 @@
+
+<nav class="navbar navbar-dark justify-content-end" style="background-color:#BF2626">
+  <!-- Navbar content -->
+      <ul>
+          <%= link_to "Cadrastrar novo usuário" , new_user_registration_path %>
+          <%= link_to "Logar" , new_user_session_path %>
+          <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
+      </ul>
+
+
+</nav>
 <h1>New veterinario</h1>
 
 <%= render "form", veterinario: @veterinario %>
