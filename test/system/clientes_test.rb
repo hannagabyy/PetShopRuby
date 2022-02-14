@@ -17,6 +17,7 @@ class ClientesTest < ApplicationSystemTestCase
     fill_in "Bairro", with: @cliente.bairro
     fill_in "Email", with: @cliente.email
     fill_in "Nome", with: @cliente.nome
+    fill_in "Pet", with: @cliente.pet_id
     fill_in "Rua", with: @cliente.rua
     fill_in "Veterinario", with: @cliente.veterinario_id
     click_on "Create Cliente"
@@ -32,6 +33,7 @@ class ClientesTest < ApplicationSystemTestCase
     fill_in "Bairro", with: @cliente.bairro
     fill_in "Email", with: @cliente.email
     fill_in "Nome", with: @cliente.nome
+    fill_in "Pet", with: @cliente.pet_id
     fill_in "Rua", with: @cliente.rua
     fill_in "Veterinario", with: @cliente.veterinario_id
     click_on "Update Cliente"

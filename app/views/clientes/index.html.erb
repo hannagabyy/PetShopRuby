@@ -1,20 +1,14 @@
-
-<nav class="navbar navbar-dark justify-content-end" style="background-color:#BF2626">
-  <!-- Navbar content -->
-      <ul>
-          <%= link_to "Cadrastrar novo usuário" , new_user_registration_path %>
-          <%= link_to "Logar" , new_user_session_path %>
-          <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
-      </ul>
-
-
-</nav>
 <p style="color: green"><%= notice %></p>
 
 <h1>Clientes</h1>
 
 <div id="clientes">
-    <%= render @clientes %>
+  <% @clientes.each do |cliente| %>
+    <%= render cliente %>
+    <p>
+      <%= link_to "Show this cliente", cliente %>
+    </p>
+  <% end %>
 </div>
 
 <%= link_to "New cliente", new_cliente_path %>

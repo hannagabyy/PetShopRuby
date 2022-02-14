@@ -1,32 +1,32 @@
+<div id="<%= dom_id cliente %>">
+  <p>
+    <strong>Nome:</strong>
+    <%= cliente.nome %>
+  </p>
 
-<p id="notice"><%= notice %></p>
-  
-  <table>
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Email</th>
-        <th>Bairro</th>
-        <th>Rua</th>
-        <th>Veterinario</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    
-    <tbody>
-    <% @clientes.each do |cliente|%>
-      <tr>
-        <td><%= cliente.nome %></td>
-        <td><%= cliente.email %></td>
-        <td><%= cliente.bairro %></td>
-        <td><%= cliente.rua %></td>
-        <td><%= cliente.veterinario.nome %></td>
-        <td><%= link_to 'Show',cliente %></td>
-        <td><%= link_to 'Edit',edit_cliente_path(cliente) %></td>
-        <td><%= link_to 'Destroy',cliente ,method: :delete%></td>
-      </tr>
-      <%end%>
-    </tbody>
-  </table>
+  <p>
+    <strong>Email:</strong>
+    <%= cliente.email %>
+  </p>
 
+  <p>
+    <strong>Bairro:</strong>
+    <%= cliente.bairro %>
+  </p>
 
+  <p>
+    <strong>Rua:</strong>
+    <%= cliente.rua %>
+  </p>
+
+  <p>
+    <strong>Veterinario:</strong>
+    <%= cliente.veterinario.nome %>
+  </p>
+
+  <p>
+    <strong>Pet:</strong>
+    <%= cliente.pet.nome %>
+  </p>
+
+</div>

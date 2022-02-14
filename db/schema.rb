@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_08_223546) do
+ActiveRecord::Schema.define(version: 2022_02_13_164244) do
 
   create_table "clientes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "nome"
@@ -18,9 +18,18 @@ ActiveRecord::Schema.define(version: 2022_02_08_223546) do
     t.string "bairro"
     t.string "rua"
     t.bigint "veterinario_id", null: false
+    t.bigint "pet_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["pet_id"], name: "index_clientes_on_pet_id"
     t.index ["veterinario_id"], name: "index_clientes_on_veterinario_id"
+  end
+
+  create_table "pets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "nome"
+    t.integer "idade"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -42,5 +51,6 @@ ActiveRecord::Schema.define(version: 2022_02_08_223546) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "clientes", "pets"
   add_foreign_key "clientes", "veterinarios"
 end
