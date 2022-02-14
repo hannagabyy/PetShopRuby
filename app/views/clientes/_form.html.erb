@@ -1,4 +1,3 @@
-
 <%= form_with(model: cliente) do |form| %>
   <% if cliente.errors.any? %>
     <div style="color: red">
@@ -12,6 +11,9 @@
     </div>
   <% end %>
 
+  <%= form.time_zone_select :time_zone %>
+   
+  
   <div>
     <%= form.label :nome, style: "display: block" %>
     <%= form.text_field :nome %>
@@ -19,7 +21,7 @@
 
   <div>
     <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+    <%= form.email_field :email %>
   </div>
 
   <div>
@@ -32,15 +34,19 @@
     <%= form.text_field :rua %>
   </div>
 
- 
   <div>
     <%= form.label :veterinario_id, style: "display: block" %>
-    <%= form.select :Veterinario_id, Veterinario.all.collect { |p| p.id } %>
+    <%= form.collection_select :veterinario_id, Veterinario.order(:nome), :id, :nome %> 
+  </div>
+  
+  <div>
+    <%= form.label :pet_id, style: "display: block" %>
+    <% pi = Pet.all.ids.last%> 
+    <%= form.select :pet_id, [pi] %>
+    
   </div>
 
-  
-
-  <div>
+ <div>
     <%= form.submit %>
   </div>
 <% end %>

@@ -6,6 +6,7 @@ class CreateClientes < ActiveRecord::Migration[7.0]
       t.string :bairro
       t.string :rua
       t.references :veterinario, null: false, foreign_key: true
+      t.references :pet, null: false, foreign_key: true
 
       t.timestamps
     end
