@@ -10,7 +10,13 @@ class ClientesController < ApplicationController
           format.html
           format.csv { send_data @clientes_export.to_csv.encode("iso-8859-1"),
           filename: "clientes/#{Date.today}.csv" }
-        end
+          #para geração de pdf:
+          format.html
+          format.json
+          format.pdf {render template: 'clientes/pdf',pdf: 'pdf'}
+      end
+
+        
   end
 
   # GET /clientes/1 or /clientes/1.json

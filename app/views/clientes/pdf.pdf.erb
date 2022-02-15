@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<%= wicked_pdf_stylesheet_link_tag 'pdf' %>
+<meta charset="utf-8">
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>nome</th>
+                <th>Email</th>
+                <th>Bairro</th>
+                <th>Rua</th>
+                <th>Veterinario</th>
+                <th>nome do pet</th>
+
+            </tr>
+        </thead>
+    <tbody>
+    <% @clientes.each do |cliente| %>
+        <tr>
+            <td><%= cliente.id %></td>  
+            <td><%= cliente.nome %></td>
+            <td><%= cliente.email %></td>  
+            <td><%= cliente.bairro %></td>
+            <td><%= cliente.rua %></td>  
+            <td><%= cliente.veterinario.nome %></td>
+            <td><%= cliente.pet.nome %></td> 
+        </tr>
+        <%end%>
+    </tbody>
+  </table>
+  </body>  
+</html>
