@@ -1,13 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Veterinarios</h1>
+<p class="lead">Veterinários Disponiveis</p>
 
 <div id="veterinarios">
   <% @veterinarios.each do |veterinario| %>
     <%= render veterinario %>
-    <p>
-      <%= link_to "Show this veterinario", veterinario %>
-    </p>
   <% end %>
 </div>
 

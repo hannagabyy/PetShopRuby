@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'consulta/index'
   resources :pets
   resources :veterinarios
   # devise_for :users

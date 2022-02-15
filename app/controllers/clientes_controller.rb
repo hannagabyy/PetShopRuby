@@ -4,7 +4,13 @@ class ClientesController < ApplicationController
 
   # GET /clientes or /clientes.json
   def index
-    @clientes = Cliente.all
+      @clientes = Cliente.all
+      @clientes_export = @clientes
+        respond_to do |format|
+          format.html
+          format.csv { send_data @clientes_export.to_csv.encode("iso-8859-1"),
+          filename: "clientes/#{Date.today}.csv" }
+        end
   end
 
   # GET /clientes/1 or /clientes/1.json

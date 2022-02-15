@@ -1,10 +1,33 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @pet %>
 
-<div>
-  <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
-  <%= link_to "Back to pets", pets_path %>
+<div class="row d-flex justify-content-center">
+  <p>Agora gostariamos de saber mais sobre você!</p>
+    <div>
+      <ul class="list-group">
+      <lu class="list-group-item btn bg-sucess m-3 p-3"><i class="fa-solid fa-users"></i><%= link_to " Se Cadastre No Nosso Site ",new_cliente_path %></lu>
+      </ul>
+      <p>Ou edite seu Pet:</p>
 
-  <%= button_to "Destroy this pet", @pet, method: :delete %>
+      <%= render @pet %>
+
+        <div class="container">
+          <div class="row">
+              <div class="col">
+                <%= link_to "Edite seu pet", edit_pet_path(@pet),class: "btn btn-info" %>
+              </div>
+
+              <div class="col">
+                
+              </div>
+
+              <div class="col">
+                <%= button_to "Apague seu pet", @pet, method: :delete,
+                class: "btn btn-danger"%>
+
+              </div> 
+              
+          </div>
+           </div >
+    </div>
 </div>

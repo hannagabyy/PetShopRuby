@@ -11,17 +11,28 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :nome, style: "display: block" %>
-    <%= form.text_field :nome %>
-  </div>
+  
 
-  <div>
-    <%= form.label :idade, style: "display: block" %>
-    <%= form.number_field :idade %>
-  </div>
+<div class="col-9 div-formulario p-3 bg-light shadow">
+<p class="lead">Primeiro nos conte um pouco mais sobre seu pet :</p>
+         <form class="row g-3">
+            <div class="col-md-6 p-2">
+                <label for="nome" class="form-label"></label>
+                <%= form.label :nome, { class: "form-label"} %>
+                <%= form.text_field :nome, { class: "form-control", placeholder: "Nome do pet" } %>
+            </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+            <div class="col-md-6 p-2">
+                <label for="idade" class="form-label"></label>
+                <%= form.label :idade, { class: "form-label"} %>
+                <%= form.number_field :idade, { class: "form-control", placeholder: "Idade do pet" } %>
+            </div>
+
+            <div class="col-12 p-2">
+              <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+            </form>
+          </div>
+          
+
+  <% end %>

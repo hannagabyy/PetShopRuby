@@ -1,12 +1,16 @@
 <div id="<%= dom_id veterinario %>">
-  <p>
-    <strong>Nome:</strong>
-    <%= veterinario.nome %>
-  </p>
+ 
+      <div class="row">
+      <div class="card m-3 bg-success p-2 text-dark bg-opacity-25 shadow-lg" style="width: 30rem;">
 
-  <p>
-    <strong>Preco:</strong>
-    <%= veterinario.preco %>
-  </p>
-
+            <i class="icon fa-solid fa-user-doctor fa-5x"></i>
+            <div class="col card-body ">
+                <h5 class="card-title"><%= veterinario.nome %></h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= veterinario.id %></li>
+                <li class="list-group-item"><%= veterinario.preco %></li>
+            </ul>
+            
+     </div><!--card-->
 </div>
