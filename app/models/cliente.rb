@@ -1,5 +1,5 @@
 class Cliente < ApplicationRecord
-
+  
   def self.to_csv
          CSV.generate(headers: true, col_sep: ";") do |csv|
           csv << ["Id","Nome", "Email", "Bairro", "Rua", "Veterinário",     
@@ -15,4 +15,5 @@ class Cliente < ApplicationRecord
      end
   belongs_to :veterinario
   belongs_to :pet
+  
 end

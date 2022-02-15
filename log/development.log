@@ -40395,3 +40395,1984 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 11ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 5075)
 
 
+Started GET "/home/index" for ::1 at 2022-02-15 15:10:21 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 82.1ms | Allocations: 38313)
+  Rendered layout layouts/application.html.erb (Duration: 96.8ms | Allocations: 53931)
+Completed 200 OK in 107ms (Views: 99.7ms | ActiveRecord: 0.0ms | Allocations: 60054)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:10:22 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 9.5ms | Allocations: 3962)
+  Rendered pets/new.html.erb within layouts/application (Duration: 10.4ms | Allocations: 4377)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 7471)
+Completed 200 OK in 81ms (Views: 15.0ms | ActiveRecord: 16.7ms | Allocations: 26818)
+
+
+Started POST "/pets" for ::1 at 2022-02-15 15:10:27 -0300
+Processing by PetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "pet"=>{"nome"=>"lufi", "idade"=>"4"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pets_controller.rb:28:in `block in create'
+  [1m[36mPet Create (0.5ms)[0m  [1m[32mINSERT INTO `pets` (`nome`, `idade`, `created_at`, `updated_at`) VALUES ('lufi', 4, '2022-02-15 18:10:27.813055', '2022-02-15 18:10:27.813055')[0m
+  ↳ app/controllers/pets_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (26.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/pets_controller.rb:28:in `block in create'
+Redirected to http://localhost:3000/pets/30
+Completed 302 Found in 34ms (ActiveRecord: 27.6ms | Allocations: 5056)
+
+
+Started GET "/pets/30" for ::1 at 2022-02-15 15:10:27 -0300
+Processing by PetsController#show as TURBO_STREAM
+  Parameters: {"id"=>"30"}
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 30 LIMIT 1[0m
+  ↳ app/controllers/pets_controller.rb:64:in `set_pet'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/_pet.html.erb (Duration: 0.7ms | Allocations: 365)
+  Rendered pets/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1560)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 4483)
+Completed 200 OK in 11ms (Views: 6.9ms | ActiveRecord: 0.7ms | Allocations: 7581)
+
+
+Started GET "/clientes/new" for ::1 at 2022-02-15 15:10:29 -0300
+Processing by ClientesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/new.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.8ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` ORDER BY `veterinarios`.`nome` ASC[0m
+  ↳ app/views/clientes/_form.html.erb:46
+  [1m[36mPet Pluck (0.4ms)[0m  [1m[34mSELECT `pets`.`id` FROM `pets`[0m
+  ↳ app/views/clientes/_form.html.erb:52
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` ORDER BY `pets`.`id` DESC LIMIT 1[0m
+  ↳ app/views/clientes/_form.html.erb:53
+  Rendered clientes/_form.html.erb (Duration: 18.9ms | Allocations: 8765)
+  Rendered clientes/new.html.erb within layouts/application (Duration: 20.2ms | Allocations: 9159)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 12232)
+Completed 200 OK in 41ms (Views: 22.9ms | ActiveRecord: 6.6ms | Allocations: 23448)
+
+
+Started POST "/clientes" for ::1 at 2022-02-15 15:10:30 -0300
+Processing by ClientesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "cliente"=>{"nome"=>"", "email"=>"", "bairro"=>"", "rua"=>"", "veterinario_id"=>"3", "pet_id"=>"30"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clientes_controller.rb:34:in `block in create'
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:34:in `block in create'
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 30 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:34:in `block in create'
+  [1m[36mCliente Create (0.7ms)[0m  [1m[32mINSERT INTO `clientes` (`nome`, `email`, `bairro`, `rua`, `veterinario_id`, `pet_id`, `created_at`, `updated_at`) VALUES ('', '', '', '', 3, 30, '2022-02-15 18:10:30.854402', '2022-02-15 18:10:30.854402')[0m
+  ↳ app/controllers/clientes_controller.rb:34:in `block in create'
+  [1m[36mTRANSACTION (9.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clientes_controller.rb:34:in `block in create'
+Redirected to http://localhost:3000/clientes/11
+Completed 302 Found in 27ms (ActiveRecord: 11.5ms | Allocations: 10764)
+
+
+Started GET "/clientes/11" for ::1 at 2022-02-15 15:10:30 -0300
+Processing by ClientesController#show as TURBO_STREAM
+  Parameters: {"id"=>"11"}
+  [1m[36mCliente Load (0.6ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 11 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/show.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.5ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 30 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 5.1ms | Allocations: 1895)
+  Rendered clientes/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2686)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 5604)
+Completed 200 OK in 15ms (Views: 8.9ms | ActiveRecord: 2.0ms | Allocations: 8652)
+
+
+Started GET "/clientes/11" for ::1 at 2022-02-15 15:11:54 -0300
+Processing by ClientesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 11 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/show.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.5ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 30 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 4.0ms | Allocations: 2004)
+  Rendered clientes/show.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2781)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 6566)
+Completed 200 OK in 18ms (Views: 12.7ms | ActiveRecord: 1.7ms | Allocations: 9572)
+
+
+Started GET "/clientes" for ::1 at 2022-02-15 15:12:26 -0300
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.5ms | Allocations: 5299)
+
+
+  
+NameError (undefined local variable or method `param' for #<ClientesController:0x0000000000e420>
+
+      @clientes = Cliente.page param[:page]
+                               ^^^^^
+Did you mean?  params
+               params=):
+  
+app/controllers/clientes_controller.rb:7:in `index'
+Started GET "/clientes" for ::1 at 2022-02-15 15:12:49 -0300
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.5ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 20 OFFSET 0[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 20.3ms | Allocations: 8715)
+  [1m[36mVeterinario Load (0.5ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 17 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 4.2ms | Allocations: 1472)
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 18 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 4.8ms | Allocations: 1386)
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 19 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.5ms | Allocations: 1465)
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 29 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.8ms | Allocations: 1381)
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 30 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.0ms | Allocations: 1381)
+  Rendered clientes/index.html.erb within layouts/application (Duration: 50.9ms | Allocations: 21125)
+  Rendered layout layouts/application.html.erb (Duration: 63.3ms | Allocations: 36290)
+Completed 200 OK in 83ms (Views: 50.6ms | ActiveRecord: 17.8ms | Allocations: 46013)
+
+
+Started GET "/clientes" for ::1 at 2022-02-15 15:14:47 -0300
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (1.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 20.8ms | Allocations: 8273)
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 17 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 3.4ms | Allocations: 1472)
+  [1m[36mCliente Count (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `clientes`[0m
+  ↳ app/views/clientes/index.html.erb:13
+  Rendered clientes/index.html.erb within layouts/application (Duration: 60.8ms | Allocations: 17594)
+  Rendered layout layouts/application.html.erb (Duration: 73.7ms | Allocations: 32009)
+Completed 200 OK in 169ms (Views: 55.0ms | ActiveRecord: 24.9ms | Allocations: 41377)
+
+
+Started GET "/clientes?page=2" for ::1 at 2022-02-15 15:15:13 -0300
+Processing by ClientesController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.3ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 2 OFFSET 2[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (1.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.9ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 18 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 15.6ms | Allocations: 1493)
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 19 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 10.2ms | Allocations: 1465)
+  [1m[36mCliente Count (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `clientes`[0m
+  ↳ app/views/clientes/index.html.erb:13
+  Rendered clientes/index.html.erb within layouts/application (Duration: 34.0ms | Allocations: 6985)
+  Rendered layout layouts/application.html.erb (Duration: 38.4ms | Allocations: 9799)
+Completed 200 OK in 42ms (Views: 34.0ms | ActiveRecord: 5.3ms | Allocations: 11661)
+
+
+Started GET "/clientes?page=3" for ::1 at 2022-02-15 15:15:16 -0300
+Processing by ClientesController#index as HTML
+  Parameters: {"page"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 2 OFFSET 4[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 29 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 4.4ms | Allocations: 1466)
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 30 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.6ms | Allocations: 1382)
+  [1m[36mCliente Count (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `clientes`[0m
+  ↳ app/views/clientes/index.html.erb:13
+  Rendered clientes/index.html.erb within layouts/application (Duration: 15.8ms | Allocations: 5731)
+  Rendered layout layouts/application.html.erb (Duration: 23.8ms | Allocations: 8544)
+Completed 200 OK in 29ms (Views: 21.7ms | ActiveRecord: 3.3ms | Allocations: 10194)
+
+
+Started GET "/clientes?page=2" for ::1 at 2022-02-15 15:15:30 -0300
+Processing by ClientesController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 2 OFFSET 2[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.5ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 18 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 4.7ms | Allocations: 1467)
+  [1m[36mVeterinario Load (0.9ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 19 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 8.7ms | Allocations: 1465)
+  [1m[36mCliente Count (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `clientes`[0m
+  ↳ app/views/clientes/index.html.erb:13
+  Rendered clientes/index.html.erb within layouts/application (Duration: 22.8ms | Allocations: 6288)
+  Rendered layout layouts/application.html.erb (Duration: 26.3ms | Allocations: 9104)
+Completed 200 OK in 31ms (Views: 22.6ms | ActiveRecord: 4.9ms | Allocations: 10757)
+
+
+Started GET "/clientes" for ::1 at 2022-02-15 15:15:32 -0300
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 4.3ms | Allocations: 1467)
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 17 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 5.3ms | Allocations: 1465)
+  [1m[36mCliente Count (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `clientes`[0m
+  ↳ app/views/clientes/index.html.erb:13
+  Rendered clientes/index.html.erb within layouts/application (Duration: 21.3ms | Allocations: 5812)
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | Allocations: 8620)
+Completed 200 OK in 29ms (Views: 21.1ms | ActiveRecord: 4.5ms | Allocations: 10275)
+
+
+Started GET "/clientes?page=2" for ::1 at 2022-02-15 15:15:35 -0300
+Processing by ClientesController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.5ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 2 OFFSET 2[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 18 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.7ms | Allocations: 1467)
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (2.8ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 19 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 13.3ms | Allocations: 1466)
+  [1m[36mCliente Count (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `clientes`[0m
+  ↳ app/views/clientes/index.html.erb:13
+  Rendered clientes/index.html.erb within layouts/application (Duration: 30.6ms | Allocations: 6287)
+  Rendered layout layouts/application.html.erb (Duration: 33.3ms | Allocations: 9095)
+Completed 200 OK in 41ms (Views: 28.1ms | ActiveRecord: 6.3ms | Allocations: 10754)
+
+
+Started GET "/clientes" for ::1 at 2022-02-15 15:15:37 -0300
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.5ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (1.7ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 14.2ms | Allocations: 1466)
+  [1m[36mVeterinario Load (2.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 17 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 6.7ms | Allocations: 1465)
+  [1m[36mCliente Count (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `clientes`[0m
+  ↳ app/views/clientes/index.html.erb:13
+  Rendered clientes/index.html.erb within layouts/application (Duration: 38.2ms | Allocations: 5809)
+  Rendered layout layouts/application.html.erb (Duration: 40.8ms | Allocations: 8617)
+Completed 200 OK in 45ms (Views: 34.3ms | ActiveRecord: 7.4ms | Allocations: 10263)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:15:41 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 5.7ms | Allocations: 1339)
+  Rendered pets/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1722)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4786)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.4ms | Allocations: 7514)
+
+
+Started GET "/home/index" for ::1 at 2022-02-15 15:15:42 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 972)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 4051)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 5177)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 15:15:44 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios`[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.6ms | Allocations: 336)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2007)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 5063)
+Completed 200 OK in 13ms (Views: 7.8ms | ActiveRecord: 1.2ms | Allocations: 7765)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 15:15:56 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 492)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 3803)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms | Allocations: 4851)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:15:58 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 1.2ms | Allocations: 589)
+  Rendered pets/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 676)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 3502)
+Completed 200 OK in 16ms (Views: 5.4ms | ActiveRecord: 3.4ms | Allocations: 5246)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:16:00 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 1.0ms | Allocations: 528)
+  Rendered pets/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 3436)
+Completed 200 OK in 10ms (Views: 7.4ms | ActiveRecord: 0.4ms | Allocations: 5014)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 15:16:03 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.6ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios`[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 1.1ms | Allocations: 31)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 995)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3811)
+Completed 200 OK in 15ms (Views: 8.0ms | ActiveRecord: 1.6ms | Allocations: 5395)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:16:08 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 0.9ms | Allocations: 528)
+  Rendered pets/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 3436)
+Completed 200 OK in 13ms (Views: 5.8ms | ActiveRecord: 0.5ms | Allocations: 5014)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:16:32 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 2.0ms | Allocations: 528)
+  Rendered pets/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 3436)
+Completed 200 OK in 20ms (Views: 15.7ms | ActiveRecord: 0.4ms | Allocations: 5008)
+
+
+Started GET "/home/index" for ::1 at 2022-02-15 15:16:32 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 600)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 3471)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 3748)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:16:33 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 7.9ms | Allocations: 528)
+  Rendered pets/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 3436)
+Completed 200 OK in 26ms (Views: 20.7ms | ActiveRecord: 0.4ms | Allocations: 5008)
+
+
+Started GET "/home/index" for ::1 at 2022-02-15 15:16:33 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 600)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 3465)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 3741)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:16:36 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 2.8ms | Allocations: 528)
+  Rendered pets/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3436)
+Completed 200 OK in 12ms (Views: 7.4ms | ActiveRecord: 0.6ms | Allocations: 5011)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:16:37 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 1.3ms | Allocations: 528)
+  Rendered pets/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 3436)
+Completed 200 OK in 15ms (Views: 8.1ms | ActiveRecord: 0.6ms | Allocations: 5032)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 15:16:38 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios`[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 986)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 3802)
+Completed 200 OK in 11ms (Views: 7.2ms | ActiveRecord: 0.9ms | Allocations: 5363)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:16:39 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 1.0ms | Allocations: 528)
+  Rendered pets/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3436)
+Completed 200 OK in 8ms (Views: 4.2ms | ActiveRecord: 0.4ms | Allocations: 5017)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:16:41 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 1.1ms | Allocations: 528)
+  Rendered pets/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 3436)
+Completed 200 OK in 19ms (Views: 14.1ms | ActiveRecord: 0.6ms | Allocations: 5029)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:16:43 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 1.7ms | Allocations: 528)
+  Rendered pets/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 3436)
+Completed 200 OK in 17ms (Views: 10.8ms | ActiveRecord: 0.6ms | Allocations: 5008)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 15:16:53 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios`[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 28)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 27)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 986)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3802)
+Completed 200 OK in 12ms (Views: 7.5ms | ActiveRecord: 0.9ms | Allocations: 5381)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:17:03 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 1.0ms | Allocations: 528)
+  Rendered pets/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3436)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.4ms | Allocations: 5014)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:17:05 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 0.9ms | Allocations: 528)
+  Rendered pets/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3436)
+Completed 200 OK in 11ms (Views: 7.0ms | ActiveRecord: 0.6ms | Allocations: 5008)
+
+
+Started GET "/clientes" for ::1 at 2022-02-15 15:17:16 -0300
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (1.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 13.0ms | Allocations: 1486)
+  [1m[36mVeterinario Load (0.6ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 17 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 5.0ms | Allocations: 1465)
+  [1m[36mCliente Count (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `clientes`[0m
+  ↳ app/views/clientes/index.html.erb:13
+  Rendered clientes/index.html.erb within layouts/application (Duration: 31.7ms | Allocations: 5902)
+  Rendered layout layouts/application.html.erb (Duration: 35.6ms | Allocations: 8710)
+Completed 200 OK in 47ms (Views: 31.1ms | ActiveRecord: 6.1ms | Allocations: 10361)
+
+
+Started GET "/clientes?page=2" for ::1 at 2022-02-15 15:17:19 -0300
+Processing by ClientesController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.5ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 2 OFFSET 2[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (1.5ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 18 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 8.8ms | Allocations: 1467)
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 19 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.8ms | Allocations: 1465)
+  [1m[36mCliente Count (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `clientes`[0m
+  ↳ app/views/clientes/index.html.erb:13
+  Rendered clientes/index.html.erb within layouts/application (Duration: 23.2ms | Allocations: 6289)
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | Allocations: 9097)
+Completed 200 OK in 34ms (Views: 25.7ms | ActiveRecord: 5.6ms | Allocations: 10744)
+
+
+Started GET "/clientes?page=3" for ::1 at 2022-02-15 15:17:21 -0300
+Processing by ClientesController#index as HTML
+  Parameters: {"page"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.6ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 2 OFFSET 4[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 29 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.5ms | Allocations: 1466)
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 30 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 1.9ms | Allocations: 1382)
+  [1m[36mCliente Count (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `clientes`[0m
+  ↳ app/views/clientes/index.html.erb:13
+  Rendered clientes/index.html.erb within layouts/application (Duration: 15.3ms | Allocations: 5730)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 8538)
+Completed 200 OK in 28ms (Views: 20.6ms | ActiveRecord: 2.9ms | Allocations: 10203)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 15:17:23 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios`[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 28)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 986)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 3804)
+Completed 200 OK in 16ms (Views: 12.5ms | ActiveRecord: 0.8ms | Allocations: 5417)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:17:34 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 0.8ms | Allocations: 528)
+  Rendered pets/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 3439)
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 0.5ms | Allocations: 5006)
+
+
+Started GET "/pets/clientes" for ::1 at 2022-02-15 15:17:42 -0300
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"clientes"}
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = NULL LIMIT 1[0m
+  ↳ app/controllers/pets_controller.rb:64:in `set_pet'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.5ms | Allocations: 1541)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Pet with 'id'=clientes):
+  
+app/controllers/pets_controller.rb:64:in `set_pet'
+Started GET "/pets/new" for ::1 at 2022-02-15 15:17:45 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 7.9ms | Allocations: 528)
+  Rendered pets/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 3454)
+Completed 200 OK in 23ms (Views: 17.6ms | ActiveRecord: 0.7ms | Allocations: 5029)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 15:17:48 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios`[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 986)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3802)
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 0.8ms | Allocations: 5390)
+
+
+Started GET "/home/index" for ::1 at 2022-02-15 15:17:53 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 602)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 3482)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 3758)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 15:17:58 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios`[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 986)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3802)
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 1.0ms | Allocations: 5387)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:18:07 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 1.0ms | Allocations: 528)
+  Rendered pets/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 610)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 3436)
+Completed 200 OK in 8ms (Views: 4.5ms | ActiveRecord: 0.7ms | Allocations: 5029)
+
+
+Started POST "/pets" for ::1 at 2022-02-15 15:18:11 -0300
+Processing by PetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "pet"=>{"nome"=>"lana", "idade"=>"2"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pets_controller.rb:28:in `block in create'
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO `pets` (`nome`, `idade`, `created_at`, `updated_at`) VALUES ('lana', 2, '2022-02-15 18:18:11.897384', '2022-02-15 18:18:11.897384')[0m
+  ↳ app/controllers/pets_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (17.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/pets_controller.rb:28:in `block in create'
+Redirected to http://localhost:3000/pets/31
+Completed 302 Found in 24ms (ActiveRecord: 18.9ms | Allocations: 3676)
+
+
+Started GET "/pets/31" for ::1 at 2022-02-15 15:18:11 -0300
+Processing by PetsController#show as TURBO_STREAM
+  Parameters: {"id"=>"31"}
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 31 LIMIT 1[0m
+  ↳ app/controllers/pets_controller.rb:64:in `set_pet'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/_pet.html.erb (Duration: 0.4ms | Allocations: 311)
+  Rendered pets/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1169)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 3978)
+Completed 200 OK in 9ms (Views: 5.1ms | ActiveRecord: 0.6ms | Allocations: 6196)
+
+
+Started GET "/clientes/new" for ::1 at 2022-02-15 15:18:16 -0300
+Processing by ClientesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/new.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` ORDER BY `veterinarios`.`nome` ASC[0m
+  ↳ app/views/clientes/_form.html.erb:46
+  [1m[36mPet Pluck (0.9ms)[0m  [1m[34mSELECT `pets`.`id` FROM `pets`[0m
+  ↳ app/views/clientes/_form.html.erb:52
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` ORDER BY `pets`.`id` DESC LIMIT 1[0m
+  ↳ app/views/clientes/_form.html.erb:53
+  Rendered clientes/_form.html.erb (Duration: 7.8ms | Allocations: 4685)
+  Rendered clientes/new.html.erb within layouts/application (Duration: 8.5ms | Allocations: 5017)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 7843)
+Completed 200 OK in 14ms (Views: 9.7ms | ActiveRecord: 2.0ms | Allocations: 9506)
+
+
+Started POST "/clientes" for ::1 at 2022-02-15 15:18:19 -0300
+Processing by ClientesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "cliente"=>{"nome"=>"", "email"=>"", "bairro"=>"", "rua"=>"", "veterinario_id"=>"3", "pet_id"=>"31"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clientes_controller.rb:34:in `block in create'
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:34:in `block in create'
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 31 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:34:in `block in create'
+  [1m[36mCliente Create (0.4ms)[0m  [1m[32mINSERT INTO `clientes` (`nome`, `email`, `bairro`, `rua`, `veterinario_id`, `pet_id`, `created_at`, `updated_at`) VALUES ('', '', '', '', 3, 31, '2022-02-15 18:18:19.154785', '2022-02-15 18:18:19.154785')[0m
+  ↳ app/controllers/clientes_controller.rb:34:in `block in create'
+  [1m[36mTRANSACTION (9.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clientes_controller.rb:34:in `block in create'
+Redirected to http://localhost:3000/clientes/12
+Completed 302 Found in 19ms (ActiveRecord: 10.9ms | Allocations: 5606)
+
+
+Started GET "/clientes/12" for ::1 at 2022-02-15 15:18:19 -0300
+Processing by ClientesController#show as TURBO_STREAM
+  Parameters: {"id"=>"12"}
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/show.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.5ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 31 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 4.0ms | Allocations: 1460)
+  Rendered clientes/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2031)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 4840)
+Completed 200 OK in 20ms (Views: 9.3ms | ActiveRecord: 3.1ms | Allocations: 7637)
+
+
+Started DELETE "/clientes/12" for ::1 at 2022-02-15 15:18:41 -0300
+Processing by ClientesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"12"}
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+  [1m[36mCliente Destroy (0.6ms)[0m  [1m[31mDELETE FROM `clientes` WHERE `clientes`.`id` = 12[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+  [1m[36mTRANSACTION (31.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+Redirected to http://localhost:3000/clientes
+Completed 302 Found in 44ms (ActiveRecord: 33.9ms | Allocations: 3764)
+
+
+Started GET "/clientes" for ::1 at 2022-02-15 15:18:41 -0300
+Processing by ClientesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.5ms | Allocations: 1466)
+  [1m[36mVeterinario Load (0.2ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 17 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.9ms | Allocations: 1465)
+  [1m[36mCliente Count (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `clientes`[0m
+  ↳ app/views/clientes/index.html.erb:13
+  Rendered clientes/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 5811)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 8620)
+Completed 200 OK in 20ms (Views: 13.2ms | ActiveRecord: 3.9ms | Allocations: 10302)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:18:46 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 1.0ms | Allocations: 529)
+  Rendered pets/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 611)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3437)
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.4ms | Allocations: 5047)
+
+
+Started GET "/pets" for ::1 at 2022-02-15 15:18:52 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2121)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 4947)
+Completed 200 OK in 16ms (Views: 11.4ms | ActiveRecord: 0.8ms | Allocations: 6621)
+
+
+Started GET "/pets" for ::1 at 2022-02-15 15:21:36 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.6ms | Allocations: 328)
+  Rendered pets/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 4208)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 4302)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 4.6ms | Allocations: 11884)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"clientes", :id=>nil}, missing required keys: [:id]):
+     6:   <% @pets.each do |pet| %>
+     7:     <%= render pet %>
+     8:     <div>
+     9:   <%= link_to "Editar Cadastro", edit_cliente_path(@cliente) , class: "btn btn-info "%> |
+    10:   <%= button_to "Apagar Cadastro", @cliente, method: :delete, class: "btn btn-danger "%>
+    11:   
+    12: </div>
+  
+app/views/pets/index.html.erb:9
+app/views/pets/index.html.erb:6
+Started GET "/pets" for ::1 at 2022-02-15 15:21:59 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 1.0ms | Allocations: 318)
+  Rendered pets/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2812)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 2906)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.8ms | Allocations: 5489)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"pets", :id=>nil}, missing required keys: [:id]):
+     6:   <% @pets.each do |pet| %>
+     7:     <%= render pet %>
+     8:     <div>
+     9:   <%= link_to "Editar Cadastro", edit_pet_path(@pet) , class: "btn btn-info "%> |
+    10:   <%= button_to "Apagar Cadastro", @pet, method: :delete, class: "btn btn-danger "%>
+    11:   
+    12: </div>
+  
+app/views/pets/index.html.erb:9
+app/views/pets/index.html.erb:6
+Started GET "/pets" for ::1 at 2022-02-15 15:22:30 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 3.0ms | Allocations: 1667)
+  Rendered pets/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2998)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3092)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.0ms | Allocations: 5678)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"pets", :id=>nil}, missing required keys: [:id]):
+    16:           <strong>Idade:</strong>
+    17:           <%= pet.idade %>
+    18:         </p>
+    19:         <%= link_to "Editar Cadastro", edit_pet_path(@pet) , class: "btn btn-info "%> |
+    20:       <%= button_to "Apagar Cadastro", @pet, method: :delete, class: "btn btn-danger "%>
+    21:         </div><!--card-body-->
+    22:       </div> <!--card-->
+  
+app/views/pets/_pet.html.erb:19
+app/views/pets/index.html.erb:7
+app/views/pets/index.html.erb:6
+Started GET "/pets" for ::1 at 2022-02-15 15:22:32 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.9ms | Allocations: 1273)
+  Rendered pets/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 2085)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 2173)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.8ms | Allocations: 3843)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"pets", :id=>nil}, missing required keys: [:id]):
+    16:           <strong>Idade:</strong>
+    17:           <%= pet.idade %>
+    18:         </p>
+    19:         <%= link_to "Editar Cadastro", edit_pet_path(@pet) , class: "btn btn-info "%> |
+    20:       <%= button_to "Apagar Cadastro", @pet, method: :delete, class: "btn btn-danger "%>
+    21:         </div><!--card-body-->
+    22:       </div> <!--card-->
+  
+app/views/pets/_pet.html.erb:19
+app/views/pets/index.html.erb:7
+app/views/pets/index.html.erb:6
+Started GET "/pets/new" for ::1 at 2022-02-15 15:22:34 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 3.5ms | Allocations: 1299)
+  Rendered pets/new.html.erb within layouts/application (Duration: 12.7ms | Allocations: 1631)
+  Rendered layout layouts/application.html.erb (Duration: 29.3ms | Allocations: 16782)
+Completed 200 OK in 33ms (Views: 29.9ms | ActiveRecord: 0.4ms | Allocations: 18439)
+
+
+Started GET "/pets" for ::1 at 2022-02-15 15:22:39 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.6ms | Allocations: 1274)
+  Rendered pets/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 2086)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 2174)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.7ms | Allocations: 3763)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"pets", :id=>nil}, missing required keys: [:id]):
+    16:           <strong>Idade:</strong>
+    17:           <%= pet.idade %>
+    18:         </p>
+    19:         <%= link_to "Editar Cadastro", edit_pet_path(@pet) , class: "btn btn-info "%> |
+    20:       <%= button_to "Apagar Cadastro", @pet, method: :delete, class: "btn btn-danger "%>
+    21:         </div><!--card-body-->
+    22:       </div> <!--card-->
+  
+app/views/pets/_pet.html.erb:19
+app/views/pets/index.html.erb:7
+app/views/pets/index.html.erb:6
+Started GET "/pets" for ::1 at 2022-02-15 15:22:48 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.5ms | Allocations: 319)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.2ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 3.0ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.7ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.3ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 17.8ms | Allocations: 2632)
+  Rendered layout layouts/application.html.erb (Duration: 26.2ms | Allocations: 6501)
+Completed 200 OK in 31ms (Views: 27.6ms | ActiveRecord: 0.7ms | Allocations: 9036)
+
+
+Started GET "/pets" for ::1 at 2022-02-15 15:25:22 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 6.7ms | Allocations: 318)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.5ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 17.4ms | Allocations: 5075)
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 8872)
+Completed 200 OK in 39ms (Views: 27.4ms | ActiveRecord: 2.1ms | Allocations: 11508)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:25:24 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:25:24 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 3509)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 6452)
+Completed 200 OK in 21ms (Views: 18.0ms | ActiveRecord: 0.7ms | Allocations: 8188)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:25:25 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:25:25 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3461)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 6277)
+Completed 200 OK in 17ms (Views: 9.1ms | ActiveRecord: 0.8ms | Allocations: 7856)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:25:26 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:25:26 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 3461)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 6277)
+Completed 200 OK in 18ms (Views: 10.2ms | ActiveRecord: 3.1ms | Allocations: 7853)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:25:27 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:25:27 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3461)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 6280)
+Completed 200 OK in 18ms (Views: 15.3ms | ActiveRecord: 0.8ms | Allocations: 7859)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:25:31 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:25:31 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.2ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3461)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 6295)
+Completed 200 OK in 30ms (Views: 25.9ms | ActiveRecord: 0.8ms | Allocations: 7877)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:25:33 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:25:33 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.2ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 15.7ms | Allocations: 3461)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 6295)
+Completed 200 OK in 31ms (Views: 19.5ms | ActiveRecord: 5.5ms | Allocations: 7862)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:25:35 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:25:35 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.6ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 12.9ms | Allocations: 3461)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 6277)
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.6ms | Allocations: 7838)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:25:37 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:25:37 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.2ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.5ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.8ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.2ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 15.4ms | Allocations: 3462)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 6278)
+Completed 200 OK in 30ms (Views: 25.9ms | ActiveRecord: 0.8ms | Allocations: 7872)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:25:38 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:25:38 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 16.6ms | Allocations: 3461)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 6295)
+Completed 200 OK in 24ms (Views: 20.4ms | ActiveRecord: 0.7ms | Allocations: 7856)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:25:39 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:25:39 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.2ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 1.9ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 1.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 17.6ms | Allocations: 3461)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 6295)
+Completed 200 OK in 32ms (Views: 21.5ms | ActiveRecord: 3.3ms | Allocations: 7871)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:25:40 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:25:40 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3461)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 6295)
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.6ms | Allocations: 7877)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 15:25:45 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 2.4ms | Allocations: 1220)
+  Rendered pets/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1553)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 4379)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.4ms | Allocations: 6028)
+
+
+Started GET "/clientes" for ::1 at 2022-02-15 15:25:50 -0300
+Processing by ClientesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.8ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.5ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 16.4ms | Allocations: 6852)
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 17 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 3.2ms | Allocations: 1469)
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 18 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 5.4ms | Allocations: 1383)
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 19 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 4.0ms | Allocations: 1465)
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 29 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 3.4ms | Allocations: 1381)
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 30 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 4.6ms | Allocations: 1381)
+  Rendered clientes/index.html.erb within layouts/application (Duration: 56.2ms | Allocations: 19283)
+  Rendered layout layouts/application.html.erb (Duration: 64.2ms | Allocations: 22328)
+Completed 200 OK in 83ms (Views: 52.5ms | ActiveRecord: 13.7ms | Allocations: 27659)
+
+
+Started GET "/clientes/11" for ::1 at 2022-02-15 15:25:57 -0300
+Processing by ClientesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 11 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/show.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 30 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 3.1ms | Allocations: 1460)
+  Rendered clientes/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2044)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 4853)
+Completed 200 OK in 11ms (Views: 6.6ms | ActiveRecord: 1.4ms | Allocations: 7725)
+
+
+Started DELETE "/clientes/11" for ::1 at 2022-02-15 15:25:58 -0300
+Processing by ClientesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"11"}
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 11 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+  [1m[36mCliente Destroy (0.5ms)[0m  [1m[31mDELETE FROM `clientes` WHERE `clientes`.`id` = 11[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+  [1m[36mTRANSACTION (9.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+Redirected to http://localhost:3000/clientes
+Completed 302 Found in 16ms (ActiveRecord: 10.8ms | Allocations: 3790)
+
+
+Started GET "/clientes" for ::1 at 2022-02-15 15:25:58 -0300
+Processing by ClientesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.6ms | Allocations: 1466)
+  [1m[36mVeterinario Load (0.2ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 17 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.6ms | Allocations: 1465)
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 18 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 3.6ms | Allocations: 1382)
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 19 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 4.0ms | Allocations: 1465)
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 29 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.6ms | Allocations: 1381)
+  Rendered clientes/index.html.erb within layouts/application (Duration: 18.4ms | Allocations: 8544)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 11353)
+Completed 200 OK in 26ms (Views: 18.2ms | ActiveRecord: 3.9ms | Allocations: 13022)
+
+
+Started GET "/clientes/10" for ::1 at 2022-02-15 15:26:00 -0300
+Processing by ClientesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 10 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/show.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 29 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 3.1ms | Allocations: 1460)
+  Rendered clientes/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1724)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 4532)
+Completed 200 OK in 10ms (Views: 6.1ms | ActiveRecord: 1.2ms | Allocations: 6624)
+
+
+Started DELETE "/clientes/10" for ::1 at 2022-02-15 15:26:01 -0300
+Processing by ClientesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"10"}
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 10 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+  [1m[36mCliente Destroy (0.4ms)[0m  [1m[31mDELETE FROM `clientes` WHERE `clientes`.`id` = 10[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+Redirected to http://localhost:3000/clientes
+Completed 302 Found in 17ms (ActiveRecord: 11.1ms | Allocations: 3680)
+
+
+Started GET "/clientes" for ::1 at 2022-02-15 15:26:01 -0300
+Processing by ClientesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.3ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.6ms | Allocations: 1466)
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 17 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.8ms | Allocations: 1465)
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 18 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 4.1ms | Allocations: 1382)
+  [1m[36mVeterinario Load (0.6ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 19 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 3.9ms | Allocations: 1465)
+  Rendered clientes/index.html.erb within layouts/application (Duration: 16.2ms | Allocations: 7045)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 9854)
+Completed 200 OK in 24ms (Views: 17.9ms | ActiveRecord: 3.3ms | Allocations: 11531)
+
+
+Started GET "/clientes/8" for ::1 at 2022-02-15 15:26:03 -0300
+Processing by ClientesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 8 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/show.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.9ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 19 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 4.5ms | Allocations: 1460)
+  Rendered clientes/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1724)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 4532)
+Completed 200 OK in 19ms (Views: 11.1ms | ActiveRecord: 2.0ms | Allocations: 6633)
+
+
+Started DELETE "/clientes/8" for ::1 at 2022-02-15 15:26:04 -0300
+Processing by ClientesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"8"}
+  [1m[36mCliente Load (0.6ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 8 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+  [1m[36mCliente Destroy (0.4ms)[0m  [1m[31mDELETE FROM `clientes` WHERE `clientes`.`id` = 8[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+  [1m[36mTRANSACTION (10.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+Redirected to http://localhost:3000/clientes
+Completed 302 Found in 19ms (ActiveRecord: 12.3ms | Allocations: 3687)
+
+
+Started GET "/clientes" for ::1 at 2022-02-15 15:26:04 -0300
+Processing by ClientesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.3ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.5ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 10.7ms | Allocations: 1466)
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 17 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.9ms | Allocations: 1465)
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 18 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 3.7ms | Allocations: 1382)
+  Rendered clientes/index.html.erb within layouts/application (Duration: 20.4ms | Allocations: 5465)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 8292)
+Completed 200 OK in 28ms (Views: 22.5ms | ActiveRecord: 3.0ms | Allocations: 9969)
+
+
+Started GET "/clientes/7" for ::1 at 2022-02-15 15:26:05 -0300
+Processing by ClientesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCliente Load (0.5ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 7 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/show.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 18 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.6ms | Allocations: 1461)
+  Rendered clientes/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1725)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 4533)
+Completed 200 OK in 11ms (Views: 6.1ms | ActiveRecord: 1.5ms | Allocations: 6631)
+
+
+Started DELETE "/clientes/7" for ::1 at 2022-02-15 15:26:06 -0300
+Processing by ClientesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"7"}
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 7 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+  [1m[36mCliente Destroy (0.5ms)[0m  [1m[31mDELETE FROM `clientes` WHERE `clientes`.`id` = 7[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+  [1m[36mTRANSACTION (23.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+Redirected to http://localhost:3000/clientes
+Completed 302 Found in 31ms (ActiveRecord: 25.4ms | Allocations: 3693)
+
+
+Started GET "/clientes" for ::1 at 2022-02-15 15:26:06 -0300
+Processing by ClientesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.8ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 4.3ms | Allocations: 1466)
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 17 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.4ms | Allocations: 1465)
+  Rendered clientes/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 3969)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 6778)
+Completed 200 OK in 16ms (Views: 9.7ms | ActiveRecord: 2.8ms | Allocations: 8434)
+
+
+Started GET "/clientes/6" for ::1 at 2022-02-15 15:26:07 -0300
+Processing by ClientesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 6 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/show.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.3ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 17 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 3.1ms | Allocations: 1460)
+  Rendered clientes/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1724)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 4532)
+Completed 200 OK in 10ms (Views: 6.1ms | ActiveRecord: 1.3ms | Allocations: 6630)
+
+
+Started DELETE "/clientes/6" for ::1 at 2022-02-15 15:26:08 -0300
+Processing by ClientesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"6"}
+  [1m[36mCliente Load (0.5ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 6 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+  [1m[36mCliente Destroy (0.4ms)[0m  [1m[31mDELETE FROM `clientes` WHERE `clientes`.`id` = 6[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+Redirected to http://localhost:3000/clientes
+Completed 302 Found in 17ms (ActiveRecord: 10.1ms | Allocations: 3686)
+
+
+Started GET "/clientes" for ::1 at 2022-02-15 15:26:08 -0300
+Processing by ClientesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.3ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/index.html.erb:4
+  [1m[36mVeterinario Load (0.2ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.9ms | Allocations: 1466)
+  Rendered clientes/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2390)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 5199)
+Completed 200 OK in 14ms (Views: 8.4ms | ActiveRecord: 1.3ms | Allocations: 6864)
+
+
+Started GET "/clientes/4" for ::1 at 2022-02-15 15:26:09 -0300
+Processing by ClientesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 4 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/show.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.4ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:19
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/clientes/_cliente.html.erb:21
+  Rendered clientes/_cliente.html.erb (Duration: 2.8ms | Allocations: 1460)
+  Rendered clientes/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1724)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4542)
+Completed 200 OK in 13ms (Views: 7.7ms | ActiveRecord: 1.5ms | Allocations: 6631)
+
+
+Started DELETE "/clientes/4" for ::1 at 2022-02-15 15:26:09 -0300
+Processing by ClientesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"4"}
+  [1m[36mCliente Load (0.4ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE `clientes`.`id` = 4 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:70:in `set_cliente'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+  [1m[36mCliente Destroy (0.5ms)[0m  [1m[31mDELETE FROM `clientes` WHERE `clientes`.`id` = 4[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+  [1m[36mTRANSACTION (19.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/clientes_controller.rb:59:in `destroy'
+Redirected to http://localhost:3000/clientes
+Completed 302 Found in 33ms (ActiveRecord: 21.3ms | Allocations: 3668)
+
+
+Started GET "/clientes" for ::1 at 2022-02-15 15:26:10 -0300
+Processing by ClientesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/index.html.erb within layouts/application
+  [1m[36mCliente Load (0.3ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/index.html.erb:4
+  Rendered clientes/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 798)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 3615)
+Completed 200 OK in 11ms (Views: 4.6ms | ActiveRecord: 0.9ms | Allocations: 5295)
+
+
+Started GET "/pets" for ::1 at 2022-02-15 15:26:14 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.2ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 3467)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 6283)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.7ms | Allocations: 7862)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:26:16 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:26:16 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3461)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 6295)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.7ms | Allocations: 7877)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:26:17 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:26:17 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.3ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.3ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 3461)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 6277)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.7ms | Allocations: 7859)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:26:18 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:26:18 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.4ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 1.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 16.0ms | Allocations: 3461)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 6295)
+Completed 200 OK in 30ms (Views: 26.7ms | ActiveRecord: 0.7ms | Allocations: 7865)
+
+
+Started DELETE "/pets" for ::1 at 2022-02-15 15:26:19 -0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/pets"):
+  
+Started GET "/pets" for ::1 at 2022-02-15 15:26:20 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3461)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 6295)
+Completed 200 OK in 12ms (Views: 8.3ms | ActiveRecord: 0.7ms | Allocations: 7892)
+
+
+Started GET "/pets" for ::1 at 2022-02-15 15:26:32 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.6ms | Allocations: 318)
+  Rendered pets/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 4024)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 4118)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.8ms | Allocations: 6596)
+
+
+  
+ActionView::Template::Error (undefined method `pet' for nil:NilClass):
+     5: <div id="pets">
+     6:   <% @pets.each do |pet| %>
+     7:     <%= render pet %>
+     8:      <%= button_to "Destroy this pet", @cliente.pet, method: :delete %>
+     9:     <div>
+    10:   
+    11:   
+  
+app/views/pets/index.html.erb:8
+app/views/pets/index.html.erb:6
+Started GET "/pets" for ::1 at 2022-02-15 15:28:32 -0300
+Processing by PetsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets`[0m
+  ↳ app/views/pets/index.html.erb:6
+  Rendered pets/_pet.html.erb (Duration: 0.5ms | Allocations: 318)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered pets/_pet.html.erb (Duration: 0.1ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/_pet.html.erb (Duration: 0.0ms | Allocations: 25)
+  Rendered pets/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2631)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 6500)
+Completed 200 OK in 24ms (Views: 15.8ms | ActiveRecord: 0.8ms | Allocations: 9137)
+
+

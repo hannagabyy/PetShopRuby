@@ -4,7 +4,7 @@ class ClientesController < ApplicationController
 
   # GET /clientes or /clientes.json
   def index
-      @clientes = Cliente.all
+      @clientes = Cliente.page params[:page]
       @clientes_export = @clientes
         respond_to do |format|
           format.html

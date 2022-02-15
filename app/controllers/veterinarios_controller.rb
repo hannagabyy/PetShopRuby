@@ -4,7 +4,7 @@ class VeterinariosController < ApplicationController
 
   # GET /veterinarios or /veterinarios.json
   def index
-    @veterinarios = Veterinario.all
+    @veterinarios = Veterinario.page params[:page]
   end
 
   # GET /veterinarios/1 or /veterinarios/1.json
@@ -68,4 +68,5 @@ class VeterinariosController < ApplicationController
     def veterinario_params
       params.require(:veterinario).permit(:nome, :preco)
     end
+    
 end
