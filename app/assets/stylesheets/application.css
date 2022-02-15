@@ -39,10 +39,61 @@ a{
     color: black;
 }
 
+a:hover{
+    text-decoration: none;
+    color: black;
+}
+
 .icon {
     
     text-align: center;
    
   }
+.corzinha-nav{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,19,0.6702031154258579) 35%, rgba(0,61,255,1) 72%, rgba(39,146,179,1) 100%);
+}
 
+.titulo-principal{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.1;
+
+    background-image: linear-gradient(to bottom, rgb(153, 51, 73), rgb(49, 62, 175), rgb(224, 64, 64));
+    
+    /* Segundo passo: apagar do fundo tudo que não estiver imediatamente atrás de texto */
+    background-clip: text;
+    -webkit-background-clip: text; /* Alguns navegadores precisam do prefixo */
   
+    /* Terceiro passo: apagar o texto, deixando apenas o fundo atrás dele */
+    -webkit-text-fill-color: transparent;
+  
+    /* Cor que contraste com o degradê, caso o navegador não suporte `background-clip: text` */
+    color: black;
+    
+}
+
+/* Exemplo apenas com `color` */
+.single-color {
+    color: steelblue;
+  }
+  
+  /* Agora, colocando um degradê */
+.gradient {
+    /* Primeiro passo: definir um degradê como fundo */
+    background-image: linear-gradient(to bottom, rebeccapurple, steelblue, turquoise);
+    
+    /* Segundo passo: apagar do fundo tudo que não estiver imediatamente atrás de texto */
+    background-clip: text;
+    -webkit-background-clip: text; /* Alguns navegadores precisam do prefixo */
+  
+    /* Terceiro passo: apagar o texto, deixando apenas o fundo atrás dele */
+    -webkit-text-fill-color: transparent;
+  
+    /* Cor que contraste com o degradê, caso o navegador não suporte `background-clip: text` */
+    color: black;
+    
+  }
+  
+  /* Não relacionado ao degradê, apenas para melhorar a visualização */

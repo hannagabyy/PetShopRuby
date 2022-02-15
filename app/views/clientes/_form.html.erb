@@ -12,6 +12,7 @@
   <% end %>
 
 
+  <div class="row"></div>
     <div class="col-9 div-formulario p-3 bg-light shadow">
       <p class="lead">Nos conte um pouco mais sobre você :</p>
          <form class="row g-3">
@@ -42,7 +43,7 @@
              <div class="col-md-6 p-2">
                 <label for="veterinario" class="form-label"></label>
                 <%= form.label :veterinario_id, { class: "form-label"} %>
-                <%= form.collection_select :veterinario_id, Veterinario.order(:nome), :id, :nome, { class: "form-control" } %>
+                <%= form.collection_select(:veterinario_id, Veterinario.order(:nome), :id, :nome,{}, { class: "form-select" } )%>
             </div>
 
             <div  class="col-md-6 p-2" style="display: none">
@@ -60,7 +61,11 @@
             </div>
             </form>
           </div>
-          
+        
+
+          </div>
+
+          </div><!--row -->
 
   
 <% end %>

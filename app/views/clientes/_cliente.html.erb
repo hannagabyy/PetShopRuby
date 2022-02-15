@@ -1,32 +1,26 @@
 <div id="<%= dom_id cliente %>">
-  <p>
-    <strong>Nome:</strong>
-    <%= cliente.nome %>
-  </p>
+ 
+      <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        <h3>Seu cadastro:</h3>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Nome:</strong>
+           <%= cliente.nome %></li>
+        <li class="list-group-item"><strong>Email:</strong>
+         <%= cliente.email %></li>
+        <li class="list-group-item"> <strong>Bairro:</strong>
+    <%= cliente.bairro %></li>
+        <li class="list-group-item"> <strong>Rua:</strong>
+    <%= cliente.rua %></li>
+         <li class="list-group-item"> <strong>Rua:</strong>
+    <%= cliente.rua %></li>
+        <li class="list-group-item"> <strong>Veterinario:</strong>
+    <%= cliente.veterinario.nome %></li>
+        <li class="list-group-item"> <strong>Pet:</strong>
+    <%= cliente.pet.nome %></li>
 
-  <p>
-    <strong>Email:</strong>
-    <%= cliente.email %>
-  </p>
-
-  <p>
-    <strong>Bairro:</strong>
-    <%= cliente.bairro %>
-  </p>
-
-  <p>
-    <strong>Rua:</strong>
-    <%= cliente.rua %>
-  </p>
-
-  <p>
-    <strong>Veterinario:</strong>
-    <%= cliente.veterinario.nome %>
-  </p>
-
-  <p>
-    <strong>Pet:</strong>
-    <%= cliente.pet.nome %>
-  </p>
+      </ul>
+    </div>
 
 </div>

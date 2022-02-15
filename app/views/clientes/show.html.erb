@@ -3,8 +3,7 @@
 <%= render @cliente %>
 
 <div>
-  <%= link_to "Edit this cliente", edit_cliente_path(@cliente) %> |
-  <%= link_to "Back to clientes", clientes_path %>
-  <%= button_to "Destroy this cliente", @cliente, method: :delete, class: "btn btn-danger "%>
+  <%= link_to "Editar Cadastro", edit_cliente_path(@cliente) , class: "btn btn-info "%> |
+  <%= button_to "Apagar Cadastro", @cliente, method: :delete, class: "btn btn-danger "%>
   
 </div>
