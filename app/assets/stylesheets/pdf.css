@@ -1,16 +1,22 @@
 tr{
     border-bottom: solid;
     border-width: 3px;
+    color: #000;
    
 }
 td,th{
-    text-align: left;
+    text-align: center;
 }
 th{
     background-color: #000;
     color:white;
+    padding: 10px;
 }
- 
+td{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    padding: 10px;
+}
  
 table, tr, td, th, tbody, thead, tfoot{
     page-break-inside: avoid !important;
