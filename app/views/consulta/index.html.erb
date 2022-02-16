@@ -4,13 +4,11 @@
     Exportar Clientes
   </button>
 
-
-
-
   <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
     <li><%= button_to "Csv", clientes_path(format: "csv"),
   class: "dropdown-item btn btn-export", method: :get %></li>
-     <li><a href="clientes.pdf">Gerate PDF</a></li>
+     <li ><a class= "dropdown-item btn btn-export" href="/clientes.pdf">PDF</a></li>
 
   </ul>
 </div>
+

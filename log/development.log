@@ -43172,3 +43172,1594 @@ Processing by ConsultaController#index as HTML
 Completed 200 OK in 19ms (Views: 17.9ms | Allocations: 5572)
 
 
+Started GET "/" for ::1 at 2022-02-15 22:42:55 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 129.6ms | Allocations: 25669)
+  Rendered layout layouts/application.html.erb (Duration: 161.1ms | Allocations: 41462)
+Completed 200 OK in 176ms (Views: 166.9ms | ActiveRecord: 0.0ms | Allocations: 47610)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 22:44:38 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PetsController#new as HTML
+Completed 401 Unauthorized in 20ms (ActiveRecord: 0.0ms | Allocations: 5360)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-02-15 22:44:38 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 29.6ms | Allocations: 1397)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 158.4ms | Allocations: 30176)
+  Rendered layout layouts/application.html.erb (Duration: 189.3ms | Allocations: 45281)
+Completed 200 OK in 223ms (Views: 198.5ms | ActiveRecord: 6.6ms | Allocations: 58707)
+
+
+Started POST "/users/sign_in" for ::1 at 2022-02-15 22:44:59 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"fifi@fifi.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'fifi@fifi.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/pets/new
+Completed 302 Found in 707ms (ActiveRecord: 1.1ms | Allocations: 6738)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 22:45:00 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 17.1ms | Allocations: 1894)
+  Rendered pets/new.html.erb within layouts/application (Duration: 29.0ms | Allocations: 2290)
+  Rendered layout layouts/application.html.erb (Duration: 36.6ms | Allocations: 5424)
+Completed 200 OK in 89ms (Views: 39.3ms | ActiveRecord: 11.4ms | Allocations: 11975)
+
+
+Started POST "/pets" for ::1 at 2022-02-15 22:45:08 -0300
+Processing by PetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "pet"=>{"nome"=>"rafael", "idade"=>"16"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pets_controller.rb:28:in `block in create'
+  [1m[36mPet Create (1.8ms)[0m  [1m[32mINSERT INTO `pets` (`nome`, `idade`, `created_at`, `updated_at`) VALUES ('rafael', 16, '2022-02-16 01:45:08.878524', '2022-02-16 01:45:08.878524')[0m
+  ↳ app/controllers/pets_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (363.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/pets_controller.rb:28:in `block in create'
+Redirected to http://localhost:3000/pets/12
+Completed 302 Found in 382ms (ActiveRecord: 366.9ms | Allocations: 4890)
+
+
+Started GET "/pets/12" for ::1 at 2022-02-15 22:45:09 -0300
+Processing by PetsController#show as TURBO_STREAM
+  Parameters: {"id"=>"12"}
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/pets_controller.rb:64:in `set_pet'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/_pet.html.erb (Duration: 1.5ms | Allocations: 364)
+  Rendered pets/show.html.erb within layouts/application (Duration: 22.0ms | Allocations: 9073)
+  Rendered layout layouts/application.html.erb (Duration: 42.2ms | Allocations: 12054)
+Completed 200 OK in 54ms (Views: 44.3ms | ActiveRecord: 1.3ms | Allocations: 15156)
+
+
+Started GET "/clientes/new" for ::1 at 2022-02-15 22:45:14 -0300
+Processing by ClientesController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/new.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` ORDER BY `veterinarios`.`nome` ASC[0m
+  ↳ app/views/clientes/_form.html.erb:46
+  [1m[36mPet Pluck (0.7ms)[0m  [1m[34mSELECT `pets`.`id` FROM `pets`[0m
+  ↳ app/views/clientes/_form.html.erb:52
+  [1m[36mPet Load (1.3ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` ORDER BY `pets`.`id` DESC LIMIT 1[0m
+  ↳ app/views/clientes/_form.html.erb:53
+  Rendered clientes/_form.html.erb (Duration: 39.2ms | Allocations: 8676)
+  Rendered clientes/new.html.erb within layouts/application (Duration: 41.3ms | Allocations: 9063)
+  Rendered layout layouts/application.html.erb (Duration: 53.5ms | Allocations: 12190)
+Completed 200 OK in 92ms (Views: 50.2ms | ActiveRecord: 11.7ms | Allocations: 23607)
+
+
+Started POST "/clientes" for ::1 at 2022-02-15 22:45:17 -0300
+Processing by ClientesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "cliente"=>{"nome"=>"", "email"=>"", "bairro"=>"", "rua"=>"", "veterinario_id"=>"3", "pet_id"=>"12"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clientes_controller.rb:40:in `block in create'
+  [1m[36mVeterinario Load (0.8ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:40:in `block in create'
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:40:in `block in create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/clientes_controller.rb:40:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/new.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` ORDER BY `veterinarios`.`nome` ASC[0m
+  ↳ app/views/clientes/_form.html.erb:46
+  [1m[36mPet Pluck (0.7ms)[0m  [1m[34mSELECT `pets`.`id` FROM `pets`[0m
+  ↳ app/views/clientes/_form.html.erb:52
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` ORDER BY `pets`.`id` DESC LIMIT 1[0m
+  ↳ app/views/clientes/_form.html.erb:53
+  Rendered clientes/_form.html.erb (Duration: 20.2ms | Allocations: 5803)
+  Rendered clientes/new.html.erb within layouts/application (Duration: 20.9ms | Allocations: 5892)
+  Rendered layout layouts/application.html.erb (Duration: 30.5ms | Allocations: 8905)
+Completed 422 Unprocessable Entity in 62ms (Views: 29.9ms | ActiveRecord: 5.0ms | Allocations: 19289)
+
+
+Started POST "/clientes" for ::1 at 2022-02-15 22:45:23 -0300
+Processing by ClientesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "cliente"=>{"nome"=>"", "email"=>"jjkj", "bairro"=>"", "rua"=>"", "veterinario_id"=>"3", "pet_id"=>"12"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/clientes_controller.rb:40:in `block in create'
+  [1m[36mVeterinario Load (0.6ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:40:in `block in create'
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:40:in `block in create'
+  [1m[36mCliente Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM `clientes` WHERE `clientes`.`email` = 'jjkj' LIMIT 1[0m
+  ↳ app/controllers/clientes_controller.rb:40:in `block in create'
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/clientes_controller.rb:40:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering clientes/new.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` ORDER BY `veterinarios`.`nome` ASC[0m
+  ↳ app/views/clientes/_form.html.erb:46
+  [1m[36mPet Pluck (0.7ms)[0m  [1m[34mSELECT `pets`.`id` FROM `pets`[0m
+  ↳ app/views/clientes/_form.html.erb:52
+  [1m[36mPet Load (1.0ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` ORDER BY `pets`.`id` DESC LIMIT 1[0m
+  ↳ app/views/clientes/_form.html.erb:53
+  Rendered clientes/_form.html.erb (Duration: 22.2ms | Allocations: 4984)
+  Rendered clientes/new.html.erb within layouts/application (Duration: 22.6ms | Allocations: 5066)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 7966)
+Completed 422 Unprocessable Entity in 77ms (Views: 28.0ms | ActiveRecord: 13.2ms | Allocations: 14367)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 22:45:51 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 400)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 3773)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.0ms | Allocations: 4889)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 22:46:00 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 87)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 3143)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 3446)
+
+
+Started GET "/consulta/clientes.pdf" for ::1 at 2022-02-15 22:46:02 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/consulta/clientes.pdf"):
+  
+Started GET "/clientes.pdf" for ::1 at 2022-02-15 22:46:22 -0300
+Processing by ClientesController#index as PDF
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering clientes/pdf.pdf.erb
+  [1m[36mCliente Load (0.8ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/pdf.pdf.erb:23
+  [1m[36mVeterinario Load (0.9ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (2.1ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mVeterinario Load (1.1ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mCACHE Pet Load (0.1ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (1.8ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 11 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  Rendered clientes/pdf.pdf.erb (Duration: 47.9ms | Allocations: 7486)
+[wicked_pdf]: ["/home/lufi/.rbenv/versions/3.1.0/bin/wkhtmltopdf", "file:////tmp/wicked_pdf20220215-30618-lhx7t8.html", "/tmp/wicked_pdf_generated_file20220215-30618-8yx50n.pdf"]
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 8)
+Sent data pdf.pdf (14.0ms)
+Completed 200 OK in 1467ms (Views: 13.3ms | ActiveRecord: 8.6ms | Allocations: 17609)
+
+
+Started GET "/consulta/clientes.pdf" for ::1 at 2022-02-15 22:48:23 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/consulta/clientes.pdf"):
+  
+Started GET "/consulta/index" for ::1 at 2022-02-15 22:49:36 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 388)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 4502)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.0ms | Allocations: 5548)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 22:49:38 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 4.6ms | Allocations: 1518)
+  Rendered pets/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1901)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 5016)
+Completed 200 OK in 28ms (Views: 18.3ms | ActiveRecord: 1.0ms | Allocations: 7457)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 22:50:14 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 2.3ms | Allocations: 746)
+  Rendered pets/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 828)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 3712)
+Completed 200 OK in 18ms (Views: 11.3ms | ActiveRecord: 0.8ms | Allocations: 5477)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 22:52:28 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 3.2ms | Allocations: 1516)
+  Rendered pets/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1884)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 5759)
+Completed 200 OK in 26ms (Views: 18.2ms | ActiveRecord: 1.0ms | Allocations: 8259)
+
+
+Started GET "/pets/new" for ::1 at 2022-02-15 22:54:46 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 4.8ms | Allocations: 961)
+  Rendered pets/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1056)
+  Rendered layout layouts/application.html.erb (Duration: 58.6ms | Allocations: 20977)
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 10.2ms | Allocations: 29579)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `consulta_index_path' for #<ActionView::Base:0x00000000014c30>):
+    54:   
+    55:          <lu class="list-group-item btn btn-danger m-3 p-3 sem-link"> <i class="fa-solid fa-user-doctor"></i><%= link_to " VETERINÁRIOS ",veterinarios_path %></lu>
+    56:        
+    57:          <lu class="list-group-item btn btn-danger m-3 p-3 sem-link"><i class="fa-solid fa-magnifying-glass"></i> <%= link_to " CONSULTA ",consulta_index_path %></l>
+    58:         </ul>
+    59: 
+    60:       </div>
+  
+app/views/layouts/application.html.erb:57
+Started GET "/pets/new" for ::1 at 2022-02-15 23:02:50 -0300
+Processing by PetsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering pets/new.html.erb within layouts/application
+  Rendered pets/_form.html.erb (Duration: 3.1ms | Allocations: 961)
+  Rendered pets/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1055)
+  Rendered layout layouts/application.html.erb (Duration: 41.6ms | Allocations: 15554)
+Completed 200 OK in 71ms (Views: 44.0ms | ActiveRecord: 1.2ms | Allocations: 23597)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:02:54 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 391)
+  Rendered layout layouts/application.html.erb (Duration: 27.7ms | Allocations: 3742)
+Completed 200 OK in 38ms (Views: 32.4ms | ActiveRecord: 0.0ms | Allocations: 4799)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:02:58 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.8ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 1.2ms | Allocations: 339)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 29.6ms | Allocations: 3207)
+  Rendered layout layouts/application.html.erb (Duration: 48.6ms | Allocations: 6310)
+Completed 200 OK in 66ms (Views: 45.4ms | ActiveRecord: 9.2ms | Allocations: 9687)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:02:59 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 96)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 3203)
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.0ms | Allocations: 3506)
+
+
+Started GET "/consulta/consulta/cliente.pdf" for ::1 at 2022-02-15 23:03:01 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/consulta/consulta/cliente.pdf"):
+  
+Started GET "/consulta/consulta/cliente.pdf" for ::1 at 2022-02-15 23:04:38 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/consulta/consulta/cliente.pdf"):
+  
+Started GET "/consulta/consulta/cliente.pdf" for ::1 at 2022-02-15 23:04:42 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/consulta/consulta/cliente.pdf"):
+  
+Started GET "/consulta/consulta/cliente.pdf" for ::1 at 2022-02-15 23:11:35 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/consulta/consulta/cliente.pdf"):
+  
+Started GET "/consulta/consulta/cliente.pdf" for ::1 at 2022-02-15 23:12:10 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/consulta/consulta/cliente.pdf"):
+  
+Started GET "/consulta/consulta/cliente.pdf" for ::1 at 2022-02-15 23:13:12 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/consulta/consulta/cliente.pdf"):
+  
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:13:15 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 394)
+  Rendered layout layouts/application.html.erb (Duration: 34.8ms | Allocations: 15883)
+Completed 200 OK in 52ms (Views: 37.5ms | Allocations: 20044)
+
+
+Started GET "/cliente.pdf" for ::1 at 2022-02-15 23:13:17 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/cliente.pdf"):
+  
+Started GET "/cliente.pdf" for ::1 at 2022-02-15 23:13:31 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/cliente.pdf"):
+  
+Started GET "/cliente.pdf" for ::1 at 2022-02-15 23:13:37 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/cliente.pdf"):
+  
+Started GET "/cliente.pdf" for ::1 at 2022-02-15 23:13:47 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/cliente.pdf"):
+  
+Started GET "/clientes.pdf" for ::1 at 2022-02-15 23:14:21 -0300
+Processing by ClientesController#index as PDF
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering clientes/pdf.pdf.erb
+  [1m[36mCliente Load (1.8ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/pdf.pdf.erb:23
+  [1m[36mVeterinario Load (0.9ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mVeterinario Load (0.8ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 11 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  Rendered clientes/pdf.pdf.erb (Duration: 70.9ms | Allocations: 16298)
+[wicked_pdf]: ["/home/lufi/.rbenv/versions/3.1.0/bin/wkhtmltopdf", "file:////tmp/wicked_pdf20220215-30618-pjtqah.html", "/tmp/wicked_pdf_generated_file20220215-30618-tcfp4s.pdf"]
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 3)
+Sent data pdf.pdf (1.1ms)
+Completed 200 OK in 1508ms (Views: 0.7ms | ActiveRecord: 35.4ms | Allocations: 24359)
+
+
+Started GET "/cliente.pdf" for ::1 at 2022-02-15 23:14:43 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/cliente.pdf"):
+  
+Started GET "/cliente.pdf" for ::1 at 2022-02-15 23:15:04 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/cliente.pdf"):
+  
+Started GET "/cliente.pdf" for ::1 at 2022-02-15 23:15:08 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/cliente.pdf"):
+  
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:15:30 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 388)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 4487)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.0ms | Allocations: 5785)
+
+
+Started GET "/clientes.pdf" for ::1 at 2022-02-15 23:15:34 -0300
+Processing by ClientesController#index as PDF
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering clientes/pdf.pdf.erb
+  [1m[36mCliente Load (1.3ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/pdf.pdf.erb:23
+  [1m[36mVeterinario Load (0.6ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (1.0ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mVeterinario Load (1.2ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mCACHE Pet Load (0.1ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 11 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  Rendered clientes/pdf.pdf.erb (Duration: 40.2ms | Allocations: 7564)
+[wicked_pdf]: ["/home/lufi/.rbenv/versions/3.1.0/bin/wkhtmltopdf", "file:////tmp/wicked_pdf20220215-30618-zksmya.html", "/tmp/wicked_pdf_generated_file20220215-30618-537o6k.pdf"]
+  Rendering text template
+  Rendered text template (Duration: 0.1ms | Allocations: 3)
+Sent data pdf.pdf (1.6ms)
+Completed 200 OK in 1404ms (Views: 1.1ms | ActiveRecord: 6.5ms | Allocations: 10736)
+
+
+Started GET "/clientes.pdf" for ::1 at 2022-02-15 23:15:59 -0300
+Processing by ClientesController#index as PDF
+  [1m[36mUser Load (9.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering clientes/pdf.pdf.erb
+  [1m[36mCliente Load (0.9ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/pdf.pdf.erb:23
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mVeterinario Load (1.1ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.1ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (1.2ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (1.0ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 11 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  Rendered clientes/pdf.pdf.erb (Duration: 41.2ms | Allocations: 7563)
+[wicked_pdf]: ["/home/lufi/.rbenv/versions/3.1.0/bin/wkhtmltopdf", "file:////tmp/wicked_pdf20220215-30618-6nx3jl.html", "/tmp/wicked_pdf_generated_file20220215-30618-qnyn2m.pdf"]
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 3)
+Sent data pdf.pdf (1.2ms)
+Completed 200 OK in 1491ms (Views: 0.9ms | ActiveRecord: 15.0ms | Allocations: 10770)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:16:02 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 387)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 4499)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.0ms | Allocations: 5709)
+
+
+Started GET "/clientes.pdf" for ::1 at 2022-02-15 23:16:04 -0300
+Processing by ClientesController#index as PDF
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering clientes/pdf.pdf.erb
+  [1m[36mCliente Load (1.1ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/pdf.pdf.erb:23
+  [1m[36mVeterinario Load (1.2ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (2.6ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mVeterinario Load (1.1ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.1ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (6.2ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (0.9ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 11 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  Rendered clientes/pdf.pdf.erb (Duration: 49.4ms | Allocations: 6808)
+[wicked_pdf]: ["/home/lufi/.rbenv/versions/3.1.0/bin/wkhtmltopdf", "file:////tmp/wicked_pdf20220215-30618-akz91d.html", "/tmp/wicked_pdf_generated_file20220215-30618-9vyrt4.pdf"]
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 3)
+Sent data pdf.pdf (1.3ms)
+Completed 200 OK in 1557ms (Views: 0.9ms | ActiveRecord: 14.9ms | Allocations: 9312)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:19:45 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1210)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1305)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2468)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+    Exportar Clientes
+  </button>
+
+
+
+
+  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+    <li><%= button_to "Csv", clientes_path(format: "csv"),
+  class: "dropdown-item btn btn-export", method: :get %></li>
+     <li><%=<a class: "dropdown-item btn btn-export" href="/clientes.pdf">PDF</a>%></li>
+
+  </ul>
+</div>
+):
+1:    
+2:    <div class="dropdown">
+3:      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+4:        Exportar Clientes
+5:      </button>
+6:    
+7:    
+8:    
+9:    
+10:      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+11:        <li><%= button_to "Csv", clientes_path(format: "csv"),
+12:      class: "dropdown-item btn btn-export", method: :get %></li>
+13:         <li><%=<a class: "dropdown-item btn btn-export" href="/clientes.pdf">PDF</a>%></li>
+14:    
+15:      </ul>
+16:    </div>
+  
+app/views/consulta/index.html.erb:13: syntax error, unexpected '<'
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: unknown regexp option - l
+app/views/consulta/index.html.erb:13: unmatched close parenthesis: /a>);@output_buffer.safe_append='</i
+app/views/consulta/index.html.erb:15: syntax error, unexpected '<'
+app/views/consulta/index.html.erb:16: unknown regexp options - dv
+app/views/consulta/index.html.erb:18: unterminated string meets end of file
+app/views/consulta/index.html.erb:18: syntax error, unexpected end-of-input, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected '<'
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: unknown regexp option - l
+app/views/consulta/index.html.erb:13: unmatched close parenthesis: /a>);@output_buffer.safe_append='</i
+app/views/consulta/index.html.erb:15: syntax error, unexpected '<'
+app/views/consulta/index.html.erb:16: unknown regexp options - dv
+app/views/consulta/index.html.erb:18: unterminated string meets end of file
+app/views/consulta/index.html.erb:18: syntax error, unexpected end-of-input, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected '<'
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: unknown regexp option - l
+app/views/consulta/index.html.erb:13: unmatched close parenthesis: /a>);@output_buffer.safe_append='</i
+app/views/consulta/index.html.erb:15: syntax error, unexpected '<'
+app/views/consulta/index.html.erb:16: unknown regexp options - dv
+app/views/consulta/index.html.erb:18: unterminated string meets end of file
+app/views/consulta/index.html.erb:18: syntax error, unexpected end-of-input, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected '<'
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: unknown regexp option - l
+app/views/consulta/index.html.erb:13: unmatched close parenthesis: /a>);@output_buffer.safe_append='</i
+app/views/consulta/index.html.erb:15: syntax error, unexpected '<'
+app/views/consulta/index.html.erb:16: unknown regexp options - dv
+app/views/consulta/index.html.erb:18: unterminated string meets end of file
+app/views/consulta/index.html.erb:18: syntax error, unexpected end-of-input, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected '<'
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: unknown regexp option - l
+app/views/consulta/index.html.erb:13: unmatched close parenthesis: /a>);@output_buffer.safe_append='</i
+app/views/consulta/index.html.erb:15: syntax error, unexpected '<'
+app/views/consulta/index.html.erb:16: unknown regexp options - dv
+app/views/consulta/index.html.erb:18: unterminated string meets end of file
+app/views/consulta/index.html.erb:18: syntax error, unexpected end-of-input, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected '<'
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: unknown regexp option - l
+app/views/consulta/index.html.erb:13: unmatched close parenthesis: /a>);@output_buffer.safe_append='</i
+app/views/consulta/index.html.erb:15: syntax error, unexpected '<'
+app/views/consulta/index.html.erb:16: unknown regexp options - dv
+app/views/consulta/index.html.erb:18: unterminated string meets end of file
+app/views/consulta/index.html.erb:18: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:23:15 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.9ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 3.2ms | Allocations: 335)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.3ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 17.6ms | Allocations: 3176)
+  Rendered layout layouts/application.html.erb (Duration: 44.7ms | Allocations: 18417)
+Completed 200 OK in 80ms (Views: 43.3ms | ActiveRecord: 9.8ms | Allocations: 26267)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:23:18 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1216)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1311)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2236)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+    Exportar Clientes
+  </button>
+
+
+
+
+  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+    <li><%= button_to "Csv", clientes_path(format: "csv"),
+  class: "dropdown-item btn btn-export", method: :get %></li>
+     <li><a><%= class: "dropdown-item btn btn-export" href="/clientes.pdf">PDF%></a></li>
+  
+
+  </ul>
+</div>
+):
+1:    
+2:    <div class="dropdown">
+3:      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+4:        Exportar Clientes
+5:      </button>
+6:    
+7:    
+8:    
+9:    
+10:      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+11:        <li><%= button_to "Csv", clientes_path(format: "csv"),
+12:      class: "dropdown-item btn btn-export", method: :get %></li>
+13:         <li><a><%= class: "dropdown-item btn btn-export" href="/clientes.pdf">PDF%></a></li>
+14:      
+15:    
+16:      </ul>
+17:    </div>
+  
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:24:24 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1216)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 1311)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2374)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+    Exportar Clientes
+  </button>
+
+
+
+
+  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+    <li><%= button_to "Csv", clientes_path(format: "csv"),
+  class: "dropdown-item btn btn-export", method: :get %></li>
+     <li><a><%= class: "dropdown-item btn btn-export" href="/clientes.pdf"%>PDF</a></li>
+  
+
+  </ul>
+</div>
+):
+1:    
+2:    <div class="dropdown">
+3:      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+4:        Exportar Clientes
+5:      </button>
+6:    
+7:    
+8:    
+9:    
+10:      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+11:        <li><%= button_to "Csv", clientes_path(format: "csv"),
+12:      class: "dropdown-item btn btn-export", method: :get %></li>
+13:         <li><a><%= class: "dropdown-item btn btn-export" href="/clientes.pdf"%>PDF</a></li>
+14:      
+15:    
+16:      </ul>
+17:    </div>
+  
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:31:22 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 1.4ms | Allocations: 324)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1818)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 5691)
+Completed 200 OK in 37ms (Views: 19.2ms | ActiveRecord: 5.9ms | Allocations: 8547)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:31:25 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1215)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1310)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2236)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+    Exportar Clientes
+  </button>
+
+
+
+
+  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+    <li><%= button_to "Csv", clientes_path(format: "csv"),
+  class: "dropdown-item btn btn-export", method: :get %></li>
+     <li><a><%= class: "dropdown-item btn btn-export" href="/clientes.pdf"%>ERA ESSE MUIE</a></li>
+  
+
+  </ul>
+</div>
+):
+1:    
+2:    <div class="dropdown">
+3:      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+4:        Exportar Clientes
+5:      </button>
+6:    
+7:    
+8:    
+9:    
+10:      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+11:        <li><%= button_to "Csv", clientes_path(format: "csv"),
+12:      class: "dropdown-item btn btn-export", method: :get %></li>
+13:         <li><a><%= class: "dropdown-item btn btn-export" href="/clientes.pdf"%>ERA ESSE MUIE</a></li>
+14:      
+15:    
+16:      </ul>
+17:    </div>
+  
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+app/views/consulta/index.html.erb:13: syntax error, unexpected label
+app/views/consulta/index.html.erb:13: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:32:32 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.9ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 2.4ms | Allocations: 324)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 17.6ms | Allocations: 1818)
+  Rendered layout layouts/application.html.erb (Duration: 32.1ms | Allocations: 5691)
+Completed 200 OK in 45ms (Views: 34.5ms | ActiveRecord: 1.7ms | Allocations: 8395)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:32:34 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 391)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 3754)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms | Allocations: 4725)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:32:38 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 3134)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 3437)
+
+
+Started GET "/consulta/clientes.pdf" for ::1 at 2022-02-15 23:32:40 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/consulta/clientes.pdf"):
+  
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:33:04 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 387)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 4503)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.0ms | Allocations: 5572)
+
+
+Started GET "/clientes.pdf" for ::1 at 2022-02-15 23:33:05 -0300
+Processing by ClientesController#index as PDF
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering clientes/pdf.pdf.erb
+  [1m[36mCliente Load (0.8ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/pdf.pdf.erb:23
+  [1m[36mVeterinario Load (1.1ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (1.2ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mVeterinario Load (0.6ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.1ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.1ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (1.0ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 11 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  Rendered clientes/pdf.pdf.erb (Duration: 79.1ms | Allocations: 14377)
+[wicked_pdf]: ["/home/lufi/.rbenv/versions/3.1.0/bin/wkhtmltopdf", "file:////tmp/wicked_pdf20220215-30618-ub79ae.html", "/tmp/wicked_pdf_generated_file20220215-30618-yrfd80.pdf"]
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 3)
+Sent data pdf.pdf (1.4ms)
+Completed 200 OK in 1545ms (Views: 0.9ms | ActiveRecord: 16.4ms | Allocations: 20561)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:34:53 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 388)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 4501)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.0ms | Allocations: 5581)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:35:15 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 388)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 4495)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms | Allocations: 5585)
+
+
+Started GET "/clientes.pdf" for ::1 at 2022-02-15 23:35:22 -0300
+Processing by ClientesController#index as PDF
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering clientes/pdf.pdf.erb
+  [1m[36mCliente Load (0.9ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/pdf.pdf.erb:23
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mCACHE Pet Load (0.1ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 11 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  Rendered clientes/pdf.pdf.erb (Duration: 67.5ms | Allocations: 7561)
+[wicked_pdf]: ["/home/lufi/.rbenv/versions/3.1.0/bin/wkhtmltopdf", "file:////tmp/wicked_pdf20220215-30618-dzo15f.html", "/tmp/wicked_pdf_generated_file20220215-30618-nflnua.pdf"]
+  Rendering text template
+  Rendered text template (Duration: 0.1ms | Allocations: 3)
+Sent data pdf.pdf (1.6ms)
+Completed 200 OK in 1511ms (Views: 0.9ms | ActiveRecord: 5.9ms | Allocations: 10819)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:36:54 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1275)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 1370)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 2422)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+    Exportar Clientes
+  </button>
+
+  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+    <li><%= button_to "Csv", clientes_path(format: "csv"),
+  class: "dropdown-item btn btn-export", method: :get %></li>
+     <li ><a class= "dropdown-item btn btn-export" href="/clientes.pdf">PDF</a></li>
+
+  </ul>
+</div>
+
+
+  <%= form_with(model: cliente) do |form| %>
+    <% cli = Cliente.find(12)%>
+    <%= form.button : [cli] %>
+    <p><%= cliente.nome %> </p>
+  <% end %>
+
+):
+1:    
+2:    <div class="dropdown">
+3:      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+4:        Exportar Clientes
+5:      </button>
+6:    
+7:      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+8:        <li><%= button_to "Csv", clientes_path(format: "csv"),
+9:      class: "dropdown-item btn btn-export", method: :get %></li>
+10:         <li ><a class= "dropdown-item btn btn-export" href="/clientes.pdf">PDF</a></li>
+11:    
+12:      </ul>
+13:    </div>
+14:    
+15:    
+16:      <%= form_with(model: cliente) do |form| %>
+17:        <% cli = Cliente.find(12)%>
+18:        <%= form.button : [cli] %>
+19:        <p><%= cliente.nome %> </p>
+20:      <% end %>
+  
+app/views/consulta/index.html.erb:18: syntax error, unexpected ':'
+app/views/consulta/index.html.erb:18: syntax error, unexpected ':'
+app/views/consulta/index.html.erb:18: syntax error, unexpected ':'
+app/views/consulta/index.html.erb:18: syntax error, unexpected ':'
+app/views/consulta/index.html.erb:18: syntax error, unexpected ':'
+app/views/consulta/index.html.erb:18: syntax error, unexpected ':'
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:37:20 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1271)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1366)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2429)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+    Exportar Clientes
+  </button>
+
+  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+    <li><%= button_to "Csv", clientes_path(format: "csv"),
+  class: "dropdown-item btn btn-export", method: :get %></li>
+     <li ><a class= "dropdown-item btn btn-export" href="/clientes.pdf">PDF</a></li>
+
+  </ul>
+</div>
+
+
+  <%= form_with(model: cliente) do |form| %>
+    <% cli = cliente.find(12)%>
+    <%= form.button : [cli] %>
+    <p><%= cliente.nome %> </p>
+  <% end %>
+
+):
+1:    
+2:    <div class="dropdown">
+3:      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+4:        Exportar Clientes
+5:      </button>
+6:    
+7:      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+8:        <li><%= button_to "Csv", clientes_path(format: "csv"),
+9:      class: "dropdown-item btn btn-export", method: :get %></li>
+10:         <li ><a class= "dropdown-item btn btn-export" href="/clientes.pdf">PDF</a></li>
+11:    
+12:      </ul>
+13:    </div>
+14:    
+15:    
+16:      <%= form_with(model: cliente) do |form| %>
+17:        <% cli = cliente.find(12)%>
+18:        <%= form.button : [cli] %>
+19:        <p><%= cliente.nome %> </p>
+20:      <% end %>
+  
+app/views/consulta/index.html.erb:18: syntax error, unexpected ':'
+app/views/consulta/index.html.erb:18: syntax error, unexpected ':'
+app/views/consulta/index.html.erb:18: syntax error, unexpected ':'
+app/views/consulta/index.html.erb:18: syntax error, unexpected ':'
+app/views/consulta/index.html.erb:18: syntax error, unexpected ':'
+app/views/consulta/index.html.erb:18: syntax error, unexpected ':'
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:38:50 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 18.8ms | Allocations: 6098)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 6192)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms | Allocations: 7254)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `cliente' for #<ActionView::Base:0x0000000003c938>
+Did you mean?  cliente_url):
+    13: </div>
+    14: 
+    15: 
+    16:   <%= form_with(model: cliente) do |form| %>
+    17:     <% cli = Cliente.find(12)%>
+    18:     <%= form.select :pet_id,[cli] %>
+    19:     <p><%= cliente.nome %> </p>
+  
+app/views/consulta/index.html.erb:16
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:39:52 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.8ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 2.0ms | Allocations: 324)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1833)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 5706)
+Completed 200 OK in 35ms (Views: 20.9ms | ActiveRecord: 2.3ms | Allocations: 8217)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:39:54 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 17.0ms | Allocations: 5637)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 5725)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms | Allocations: 6006)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `cliente' for #<ActionView::Base:0x0000000003cd20>
+Did you mean?  cliente_url):
+    13: </div>
+    14: 
+    15: 
+    16:   <%= form_with(model: cliente) do |form| %>
+    17:     <% cli = Cliente.find(12)%>
+    18:     <%= form.select :pet_id,[cli] %>
+    19:     <p><%= cliente.nome %> </p>
+  
+app/views/consulta/index.html.erb:16
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:40:02 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (3.9ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 2.1ms | Allocations: 324)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 19.3ms | Allocations: 1818)
+  Rendered layout layouts/application.html.erb (Duration: 42.3ms | Allocations: 5691)
+Completed 200 OK in 57ms (Views: 42.6ms | ActiveRecord: 4.8ms | Allocations: 8323)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:40:04 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 387)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 3738)
+Completed 200 OK in 24ms (Views: 17.4ms | ActiveRecord: 0.0ms | Allocations: 4696)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:40:07 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 86)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 3131)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms | Allocations: 3434)
+
+
+Started GET "/clientes.pdf" for ::1 at 2022-02-15 23:40:09 -0300
+Processing by ClientesController#index as PDF
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering clientes/pdf.pdf.erb
+  [1m[36mCliente Load (0.7ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` LIMIT 10 OFFSET 0[0m
+  ↳ app/views/clientes/pdf.pdf.erb:23
+  [1m[36mVeterinario Load (1.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (1.1ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mVeterinario Load (0.9ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.0ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (2.4ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  [1m[36mCACHE Veterinario Load (0.1ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:30
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT `pets`.* FROM `pets` WHERE `pets`.`id` = 11 LIMIT 1[0m
+  ↳ app/views/clientes/pdf.pdf.erb:31
+  Rendered clientes/pdf.pdf.erb (Duration: 46.5ms | Allocations: 7563)
+[wicked_pdf]: ["/home/lufi/.rbenv/versions/3.1.0/bin/wkhtmltopdf", "file:////tmp/wicked_pdf20220215-30618-o2dwm7.html", "/tmp/wicked_pdf_generated_file20220215-30618-prfdnh.pdf"]
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 3)
+Sent data pdf.pdf (1.0ms)
+Completed 200 OK in 1473ms (Views: 0.7ms | ActiveRecord: 7.8ms | Allocations: 10697)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-15 23:53:48 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 781)
+  Rendered layout layouts/application.html.erb (Duration: 144.8ms | Allocations: 40995)
+Completed 200 OK in 156ms (Views: 149.0ms | ActiveRecord: 0.0ms | Allocations: 45760)
+
+
+Started GET "/home/index" for ::1 at 2022-02-15 23:53:52 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 993)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4161)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 5307)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:54:05 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 1.4ms | Allocations: 391)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 17.1ms | Allocations: 5513)
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | Allocations: 8645)
+Completed 200 OK in 61ms (Views: 21.6ms | ActiveRecord: 9.8ms | Allocations: 24865)
+
+
+Started GET "/veterinarios/new" for ::1 at 2022-02-15 23:54:18 -0300
+Processing by VeterinariosController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/new.html.erb within layouts/application
+  Rendered veterinarios/_form.html.erb (Duration: 23.5ms | Allocations: 12224)
+  Rendered veterinarios/new.html.erb within layouts/application (Duration: 25.0ms | Allocations: 12640)
+  Rendered layout layouts/application.html.erb (Duration: 31.1ms | Allocations: 15648)
+Completed 200 OK in 40ms (Views: 31.9ms | ActiveRecord: 0.9ms | Allocations: 17563)
+
+
+Started POST "/veterinarios" for ::1 at 2022-02-15 23:54:24 -0300
+Processing by VeterinariosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "veterinario"=>{"nome"=>"hanna banana", "preco"=>"R$ 250"}, "commit"=>"Create Veterinario"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/new.html.erb within layouts/application
+  Rendered veterinarios/_form.html.erb (Duration: 4.7ms | Allocations: 1332)
+  Rendered veterinarios/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1441)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 4428)
+Completed 422 Unprocessable Entity in 20ms (Views: 12.2ms | ActiveRecord: 0.6ms | Allocations: 7280)
+
+
+Started POST "/veterinarios" for ::1 at 2022-02-15 23:54:29 -0300
+Processing by VeterinariosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "veterinario"=>{"nome"=>"hannabanana", "preco"=>"R$ 250"}, "commit"=>"Create Veterinario"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/veterinarios_controller.rb:28:in `block in create'
+  [1m[36mVeterinario Create (0.9ms)[0m  [1m[32mINSERT INTO `veterinarios` (`nome`, `preco`, `created_at`, `updated_at`) VALUES ('hannabanana', 'R$ 250', '2022-02-16 02:54:29.150937', '2022-02-16 02:54:29.150937')[0m
+  ↳ app/controllers/veterinarios_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (484.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/veterinarios_controller.rb:28:in `block in create'
+Redirected to http://localhost:3000/veterinarios/5
+Completed 302 Found in 501ms (ActiveRecord: 486.9ms | Allocations: 4532)
+
+
+Started GET "/veterinarios/5" for ::1 at 2022-02-15 23:54:29 -0300
+Processing by VeterinariosController#show as TURBO_STREAM
+  Parameters: {"id"=>"5"}
+  [1m[36mVeterinario Load (0.6ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 5 LIMIT 1[0m
+  ↳ app/controllers/veterinarios_controller.rb:64:in `set_veterinario'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/show.html.erb within layouts/application
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 30)
+  Rendered veterinarios/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 767)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 3634)
+Completed 200 OK in 19ms (Views: 10.4ms | ActiveRecord: 1.2ms | Allocations: 6609)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:54:52 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.3ms | Allocations: 28)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 928)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 3796)
+Completed 200 OK in 17ms (Views: 10.5ms | ActiveRecord: 1.3ms | Allocations: 5410)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:55:11 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.6ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 52)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 11.5ms | Allocations: 2465)
+  Rendered layout layouts/application.html.erb (Duration: 36.4ms | Allocations: 16960)
+Completed 200 OK in 83ms (Views: 34.7ms | ActiveRecord: 12.5ms | Allocations: 24397)
+
+
+Started GET "/veterinarios/new" for ::1 at 2022-02-15 23:55:14 -0300
+Processing by VeterinariosController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/new.html.erb within layouts/application
+  Rendered veterinarios/_form.html.erb (Duration: 2.4ms | Allocations: 763)
+  Rendered veterinarios/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 866)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 3760)
+Completed 200 OK in 17ms (Views: 10.7ms | ActiveRecord: 0.6ms | Allocations: 5495)
+
+
+Started POST "/veterinarios" for ::1 at 2022-02-15 23:55:17 -0300
+Processing by VeterinariosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "veterinario"=>{"nome"=>"hanna banana", "preco"=>"R$ 250"}, "commit"=>"Create Veterinario"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/veterinarios_controller.rb:28:in `block in create'
+  [1m[36mVeterinario Create (0.6ms)[0m  [1m[32mINSERT INTO `veterinarios` (`nome`, `preco`, `created_at`, `updated_at`) VALUES ('hanna banana', 'R$ 250', '2022-02-16 02:55:17.362569', '2022-02-16 02:55:17.362569')[0m
+  ↳ app/controllers/veterinarios_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (463.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/veterinarios_controller.rb:28:in `block in create'
+Redirected to http://localhost:3000/veterinarios/6
+Completed 302 Found in 477ms (ActiveRecord: 464.6ms | Allocations: 3756)
+
+
+Started GET "/veterinarios/6" for ::1 at 2022-02-15 23:55:17 -0300
+Processing by VeterinariosController#show as TURBO_STREAM
+  Parameters: {"id"=>"6"}
+  [1m[36mVeterinario Load (0.8ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 6 LIMIT 1[0m
+  ↳ app/controllers/veterinarios_controller.rb:64:in `set_veterinario'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/show.html.erb within layouts/application
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 28)
+  Rendered veterinarios/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 344)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 3211)
+Completed 200 OK in 28ms (Views: 16.6ms | ActiveRecord: 1.8ms | Allocations: 5954)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:55:20 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.6ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 28)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 926)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 3793)
+Completed 200 OK in 20ms (Views: 13.0ms | ActiveRecord: 1.4ms | Allocations: 5422)
+
+
+Started GET "/veterinarios/new" for ::1 at 2022-02-15 23:55:23 -0300
+Processing by VeterinariosController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/new.html.erb within layouts/application
+  Rendered veterinarios/_form.html.erb (Duration: 2.4ms | Allocations: 637)
+  Rendered veterinarios/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 737)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 3621)
+Completed 200 OK in 29ms (Views: 15.8ms | ActiveRecord: 0.8ms | Allocations: 5212)
+
+
+Started POST "/veterinarios" for ::1 at 2022-02-15 23:55:27 -0300
+Processing by VeterinariosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "veterinario"=>{"nome"=>"ZE CASTRADOR", "preco"=>"R$ 800"}, "commit"=>"Create Veterinario"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/veterinarios_controller.rb:28:in `block in create'
+  [1m[36mVeterinario Create (0.7ms)[0m  [1m[32mINSERT INTO `veterinarios` (`nome`, `preco`, `created_at`, `updated_at`) VALUES ('ZE CASTRADOR', 'R$ 800', '2022-02-16 02:55:27.624495', '2022-02-16 02:55:27.624495')[0m
+  ↳ app/controllers/veterinarios_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (318.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/veterinarios_controller.rb:28:in `block in create'
+Redirected to http://localhost:3000/veterinarios/7
+Completed 302 Found in 331ms (ActiveRecord: 320.3ms | Allocations: 3476)
+
+
+Started GET "/veterinarios/7" for ::1 at 2022-02-15 23:55:27 -0300
+Processing by VeterinariosController#show as TURBO_STREAM
+  Parameters: {"id"=>"7"}
+  [1m[36mVeterinario Load (0.8ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` WHERE `veterinarios`.`id` = 7 LIMIT 1[0m
+  ↳ app/controllers/veterinarios_controller.rb:64:in `set_veterinario'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/show.html.erb within layouts/application
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 28)
+  Rendered veterinarios/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 319)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 3188)
+Completed 200 OK in 20ms (Views: 9.9ms | ActiveRecord: 1.7ms | Allocations: 5301)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:55:29 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.5ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 926)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 3792)
+Completed 200 OK in 18ms (Views: 12.1ms | ActiveRecord: 1.1ms | Allocations: 5413)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:55:31 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.5ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 28)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 926)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 3792)
+Completed 200 OK in 18ms (Views: 11.6ms | ActiveRecord: 1.3ms | Allocations: 5411)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:56:18 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 1.0ms | Allocations: 400)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 17.8ms | Allocations: 5885)
+  Rendered layout layouts/application.html.erb (Duration: 173.2ms | Allocations: 45856)
+Completed 200 OK in 232ms (Views: 174.3ms | ActiveRecord: 9.6ms | Allocations: 67152)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:58:50 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.6ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 3 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 52)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 12.3ms | Allocations: 2576)
+  Rendered layout layouts/application.html.erb (Duration: 34.1ms | Allocations: 16974)
+Completed 200 OK in 60ms (Views: 32.3ms | ActiveRecord: 8.7ms | Allocations: 24424)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:59:04 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.5ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 52)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 11.3ms | Allocations: 2465)
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 16953)
+Completed 200 OK in 71ms (Views: 30.3ms | ActiveRecord: 9.6ms | Allocations: 24381)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-15 23:59:21 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.6ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 52)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 12.6ms | Allocations: 2465)
+  Rendered layout layouts/application.html.erb (Duration: 35.9ms | Allocations: 16864)
+Completed 200 OK in 62ms (Views: 34.5ms | ActiveRecord: 8.8ms | Allocations: 24257)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-16 00:07:48 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 1.1ms | Allocations: 324)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  [1m[36mVeterinario Count (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `veterinarios`[0m
+  ↳ app/views/veterinarios/index.html.erb:13
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 58.5ms | Allocations: 16104)
+  Rendered layout layouts/application.html.erb (Duration: 66.5ms | Allocations: 19965)
+Completed 200 OK in 78ms (Views: 66.7ms | ActiveRecord: 3.8ms | Allocations: 22808)
+
+
+Started GET "/veterinarios?page=2" for ::1 at 2022-02-16 00:07:57 -0300
+Processing by VeterinariosController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.6ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 2[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 31)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  [1m[36mVeterinario Count (4.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `veterinarios`[0m
+  ↳ app/views/veterinarios/index.html.erb:13
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 19.0ms | Allocations: 4013)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 6880)
+Completed 200 OK in 34ms (Views: 21.7ms | ActiveRecord: 5.9ms | Allocations: 8694)
+
+
+Started GET "/veterinarios?page=3" for ::1 at 2022-02-16 00:08:00 -0300
+Processing by VeterinariosController#index as HTML
+  Parameters: {"page"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (1.1ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 4[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2076)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 4943)
+Completed 200 OK in 20ms (Views: 13.3ms | ActiveRecord: 1.8ms | Allocations: 6577)
+
+
+Started GET "/veterinarios?page=2" for ::1 at 2022-02-16 00:08:02 -0300
+Processing by VeterinariosController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 2[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  [1m[36mVeterinario Count (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `veterinarios`[0m
+  ↳ app/views/veterinarios/index.html.erb:13
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 13.1ms | Allocations: 3349)
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 6215)
+Completed 200 OK in 38ms (Views: 20.9ms | ActiveRecord: 3.2ms | Allocations: 7844)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-16 00:08:05 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.6ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 27)
+  [1m[36mVeterinario Count (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `veterinarios`[0m
+  ↳ app/views/veterinarios/index.html.erb:13
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 31.0ms | Allocations: 2875)
+  Rendered layout layouts/application.html.erb (Duration: 36.7ms | Allocations: 5741)
+Completed 200 OK in 50ms (Views: 39.5ms | ActiveRecord: 2.7ms | Allocations: 7366)
+
+
+Started GET "/veterinarios?page=3" for ::1 at 2022-02-16 00:08:09 -0300
+Processing by VeterinariosController#index as HTML
+  Parameters: {"page"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 4[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.3ms | Allocations: 28)
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2076)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 4943)
+Completed 200 OK in 29ms (Views: 14.1ms | ActiveRecord: 1.5ms | Allocations: 6593)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-16 00:08:12 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.7ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.3ms | Allocations: 28)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 27)
+  [1m[36mVeterinario Count (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `veterinarios`[0m
+  ↳ app/views/veterinarios/index.html.erb:13
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 14.9ms | Allocations: 2873)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 5739)
+Completed 200 OK in 37ms (Views: 21.5ms | ActiveRecord: 4.2ms | Allocations: 7370)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-16 00:08:43 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.5ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 27)
+  [1m[36mVeterinario Count (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `veterinarios`[0m
+  ↳ app/views/veterinarios/index.html.erb:13
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 2873)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 5739)
+Completed 200 OK in 24ms (Views: 15.5ms | ActiveRecord: 2.8ms | Allocations: 7355)
+
+
+Started GET "/veterinarios" for ::1 at 2022-02-16 00:09:00 -0300
+Processing by VeterinariosController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering veterinarios/index.html.erb within layouts/application
+  [1m[36mVeterinario Load (0.5ms)[0m  [1m[34mSELECT `veterinarios`.* FROM `veterinarios` LIMIT 2 OFFSET 0[0m
+  ↳ app/views/veterinarios/index.html.erb:6
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered veterinarios/_veterinario.html.erb (Duration: 0.2ms | Allocations: 27)
+  [1m[36mVeterinario Count (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `veterinarios`[0m
+  ↳ app/views/veterinarios/index.html.erb:13
+  Rendered veterinarios/index.html.erb within layouts/application (Duration: 10.8ms | Allocations: 2873)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 5739)
+Completed 200 OK in 22ms (Views: 15.1ms | ActiveRecord: 2.5ms | Allocations: 7349)
+
+

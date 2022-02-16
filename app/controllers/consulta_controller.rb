@@ -1,3 +1,3 @@
 class ConsultaController < ApplicationController
-  
+
 end
