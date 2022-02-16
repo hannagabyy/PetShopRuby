@@ -49264,3 +49264,103 @@ Processing by ConsultaController#search as HTML
 Completed 200 OK in 26ms (Views: 22.4ms | ActiveRecord: 1.2ms | Allocations: 4487)
 
 
+Started GET "/search?q=p&commit=Pesquisar" for 127.0.0.1 at 2022-02-16 10:01:30 -0300
+Started GET "/search?q=p&commit=Pesquisar" for 127.0.0.1 at 2022-02-16 10:01:30 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ConsultaController#search as HTML
+Processing by ConsultaController#search as HTML
+  Parameters: {"q"=>"p", "commit"=>"Pesquisar"}
+  Parameters: {"q"=>"p", "commit"=>"Pesquisar"}
+  Rendering layout layouts/application.html.erb
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/search.html.erb within layouts/application
+  Rendering consulta/search.html.erb within layouts/application
+  [1m[36mCliente Load (2.0ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE (nome like '%p%')[0m
+  ↳ app/views/consulta/search.html.erb:3
+  [1m[36mCliente Load (3.2ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE (nome like '%p%')[0m
+  ↳ app/views/consulta/search.html.erb:3
+  Rendered consulta/search.html.erb within layouts/application (Duration: 27.7ms | Allocations: 11592)
+  Rendered consulta/search.html.erb within layouts/application (Duration: 27.3ms | Allocations: 11597)
+  Rendered layout layouts/application.html.erb (Duration: 210.7ms | Allocations: 85204)
+Completed 200 OK in 242ms (Views: 209.4ms | ActiveRecord: 9.8ms | Allocations: 96368)
+
+
+  Rendered layout layouts/application.html.erb (Duration: 218.7ms | Allocations: 88594)
+Completed 200 OK in 248ms (Views: 217.3ms | ActiveRecord: 9.1ms | Allocations: 99326)
+
+
+Started GET "/search?q=p&commit=Pesquisar" for ::1 at 2022-02-16 10:01:54 -0300
+Processing by ConsultaController#search as HTML
+  Parameters: {"q"=>"p", "commit"=>"Pesquisar"}
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/search.html.erb within layouts/application
+  [1m[36mCliente Load (1.9ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE (nome like '%p%')[0m
+  ↳ app/views/consulta/search.html.erb:3
+  Rendered consulta/search.html.erb within layouts/application (Duration: 10.2ms | Allocations: 1076)
+  Rendered layout layouts/application.html.erb (Duration: 31.0ms | Allocations: 5226)
+Completed 200 OK in 42ms (Views: 33.9ms | ActiveRecord: 1.9ms | Allocations: 6535)
+
+
+Started GET "/search?q=p&commit=Pesquisar" for ::1 at 2022-02-16 10:02:35 -0300
+Processing by ConsultaController#search as HTML
+  Parameters: {"q"=>"p", "commit"=>"Pesquisar"}
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/search.html.erb within layouts/application
+  [1m[36mCliente Load (0.8ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE (nome like '%p%')[0m
+  ↳ app/views/consulta/search.html.erb:3
+  Rendered consulta/search.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1069)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 5237)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.8ms | Allocations: 6494)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-16 10:03:03 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 746)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 3797)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 4152)
+
+
+Started GET "/search?q=p&commit=Pesquisar" for ::1 at 2022-02-16 10:03:10 -0300
+Processing by ConsultaController#search as HTML
+  Parameters: {"q"=>"p", "commit"=>"Pesquisar"}
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/search.html.erb within layouts/application
+  [1m[36mCliente Load (1.7ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE (nome like '%p%')[0m
+  ↳ app/views/consulta/search.html.erb:3
+  Rendered consulta/search.html.erb within layouts/application (Duration: 6.1ms | Allocations: 667)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 3729)
+Completed 200 OK in 24ms (Views: 20.1ms | ActiveRecord: 1.7ms | Allocations: 4079)
+
+
+Started GET "/home/index" for ::1 at 2022-02-16 10:03:29 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 992)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 4164)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.0ms | Allocations: 5302)
+
+
+Started GET "/consulta/index" for ::1 at 2022-02-16 10:03:44 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  Rendered consulta/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 203)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 3259)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 3561)
+
+
+Started GET "/search?q=a&commit=Pesquisar" for ::1 at 2022-02-16 10:03:47 -0300
+Processing by ConsultaController#search as HTML
+  Parameters: {"q"=>"a", "commit"=>"Pesquisar"}
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/search.html.erb within layouts/application
+  [1m[36mCliente Load (1.2ms)[0m  [1m[34mSELECT `clientes`.* FROM `clientes` WHERE (nome like '%a%')[0m
+  ↳ app/views/consulta/search.html.erb:3
+  Rendered consulta/search.html.erb within layouts/application (Duration: 4.9ms | Allocations: 737)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 3799)
+Completed 200 OK in 22ms (Views: 18.6ms | ActiveRecord: 1.2ms | Allocations: 4152)
+
+
