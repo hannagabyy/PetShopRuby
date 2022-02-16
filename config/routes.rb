@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # root 'home#index'
   resources :clientes
 
+  get 'search', to:"consulta#search"
+
   root to: "home#index"
   devise_for :users, :sign_out_via => [ :get ]
   namespace :users do
